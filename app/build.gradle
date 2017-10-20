@@ -7,7 +7,7 @@ def versionBuild = 0
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.tigcal.apps"
         minSdkVersion 14
@@ -17,6 +17,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            applicationIdSuffix ".dev"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -41,5 +44,9 @@ dependencies {
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
+    compile "com.google.firebase:firebase-crash:${playServicesVersion}"
+
     testCompile 'junit:junit:4.12'
 }
+
+apply plugin: 'com.google.gms.google-services'
