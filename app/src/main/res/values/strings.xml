@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Tigcal Apps</string>
+
+    <string name="menu_android">Android</string>
+    <string name="menu_assistant">Assistant</string>
+    <string name="menu_chrome">Chrome</string>
 </resources>
