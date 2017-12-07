@@ -9,5 +9,6 @@
     <color name="colorIcons">#212121</color>
     <color name="colorDivider">#BDBDBD</color>
 
-    <color name="ic_launcher_background">#8BC34A</color>
+    <color name="colorLauncherBackground">#8BC34A</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
