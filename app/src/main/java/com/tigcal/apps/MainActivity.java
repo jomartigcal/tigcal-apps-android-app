@@ -4,9 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView appsRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +38,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bottomNavigationView.setSelectedItemId(R.id.action_android);
+
+        appsRecyclerView = findViewById(R.id.apps_recycler_view);
+        appsRecyclerView.setHasFixedSize(true);
+        appsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
