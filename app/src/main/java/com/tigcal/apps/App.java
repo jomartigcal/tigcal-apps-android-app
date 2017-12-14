@@ -4,8 +4,8 @@ public class App {
     private String name;
     private String photo;
     private String url;
-    private String packageName;
-    private boolean android;
+    private String packageName = "";
+    private boolean android = false;
 
     public String getName() {
         return name;

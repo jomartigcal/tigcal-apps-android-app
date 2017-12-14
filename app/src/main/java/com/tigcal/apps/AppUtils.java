@@ -77,4 +77,20 @@ public class AppUtils {
 
         return androidApps;
     }
+
+    public static List<App> getAssistantApps() {
+        List<App> assistantApps = new ArrayList<>();
+
+        App app = new App();
+        app.setName("Budget Penny");
+        app.setUrl("https://assistant.google.com/services/a/id/386ffed76114e24f");
+        assistantApps.add(app);
+
+        app = new App();
+        app.setName("GDG Philippines");
+        app.setUrl("https://assistant.google.com/services/a/id/631a617c588e09c9/");
+        assistantApps.add(app);
+
+        return assistantApps;
+    }
 }
