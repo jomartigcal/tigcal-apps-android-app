@@ -93,4 +93,25 @@ public class AppUtils {
 
         return assistantApps;
     }
+
+    public static List<App> getChromeApps() {
+        List<App> chromeApps = new ArrayList<>();
+
+        App app = new App();
+        app.setName("Android Gradle Extension");
+        app.setUrl("https://chrome.google.com/webstore/detail/android-gradle-extension/fhpkfgflphcjlacgolciajdkfodapmcn");
+        chromeApps.add(app);
+
+        app = new App();
+        app.setName("Pinoy Jokes");
+        app.setUrl("https://chrome.google.com/webstore/detail/pinoy-jokes-chrome-extens/olpaccmgjefjnmojjmhkobjgmofpogai");
+        chromeApps.add(app);
+
+        app = new App();
+        app.setName("GDG Philippines");
+        app.setUrl("https://chrome.google.com/webstore/detail/gdg-philippines/pbpopomlbomjpbmpfigaogeodiemmjbm");
+        chromeApps.add(app);
+
+        return chromeApps;
+    }
 }
