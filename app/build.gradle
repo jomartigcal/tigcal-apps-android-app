@@ -47,6 +47,8 @@ dependencies {
     compile "com.google.firebase:firebase-core:${playServicesVersion}"
     compile "com.google.firebase:firebase-crash:${playServicesVersion}"
 
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+
     testCompile 'junit:junit:4.12'
 }
 

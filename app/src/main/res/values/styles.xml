@@ -8,4 +8,8 @@
     <style name="AppTheme.LaunchScreen">
         <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
+
+    <style name="AppButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+    </style>
 </resources>
