@@ -1,5 +1,7 @@
 package com.tigcal.apps;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -42,5 +44,13 @@ public class MainActivity extends AppCompatActivity {
         appsRecyclerView = findViewById(R.id.apps_recycler_view);
         appsRecyclerView.setHasFixedSize(true);
         appsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        AppAdapter appAdapter = new AppAdapter(this, AppUtils.getAndroidApps(), new AppAdapter.OnClickListener() {
+            @Override
+            public void onClick(App app) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+            }
+        });
+        appsRecyclerView.setAdapter(appAdapter);
     }
 }
