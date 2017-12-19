@@ -25,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_android:
-                        setTitle(getString(R.string.menu_android));
+                        displayAndroidApps();
                         return true;
                     case R.id.action_assistant:
-                        setTitle(getString(R.string.menu_assistant));
+                        displayAssistantApps();
                         return true;
                     case R.id.action_chrome:
-                        setTitle(getString(R.string.menu_chrome));
+                        displayChromeApps();
                         return true;
                 }
 
@@ -39,13 +39,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.action_android);
-
         appsRecyclerView = findViewById(R.id.apps_recycler_view);
         appsRecyclerView.setHasFixedSize(true);
         appsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        bottomNavigationView.setSelectedItemId(R.id.action_android);
+    }
+
+    private void displayAndroidApps() {
+        setTitle(getString(R.string.menu_android));
+
         AppAdapter appAdapter = new AppAdapter(this, AppUtils.getAndroidApps(), new AppAdapter.OnClickListener() {
+            @Override
+            public void onClick(App app) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+            }
+        });
+        appsRecyclerView.setAdapter(appAdapter);
+    }
+
+    private void displayAssistantApps() {
+        setTitle(getString(R.string.menu_assistant));
+
+        AppAdapter appAdapter = new AppAdapter(this, AppUtils.getAssistantApps(), new AppAdapter.OnClickListener() {
+            @Override
+            public void onClick(App app) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+            }
+        });
+        appsRecyclerView.setAdapter(appAdapter);
+    }
+
+    private void displayChromeApps() {
+        setTitle(getString(R.string.menu_chrome));
+
+        AppAdapter appAdapter = new AppAdapter(this, AppUtils.getChromeApps(), new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
