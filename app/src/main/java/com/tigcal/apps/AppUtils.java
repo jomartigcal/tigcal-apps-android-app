@@ -70,6 +70,13 @@ public class AppUtils {
 
         app = new App();
         app.setAndroid(true);
+        app.setName("Budget Pinoy");
+        app.setPackageName("com.sweldongpinoy.budget");
+        app.setUrl("https://play.google.com/store/apps/details?id=com.sweldongpinoy.budget");
+        androidApps.add(app);
+
+        app = new App();
+        app.setAndroid(true);
         app.setName("Tigcal Utilities");
         app.setPackageName("com.tigcal.utils");
         app.setUrl("https://play.google.com/apps/testing/com.tigcal.utils");
