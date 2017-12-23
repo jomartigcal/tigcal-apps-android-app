@@ -34,6 +34,13 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
         holder.nameText.setText(app.getName());
         holder.urlText.setText(app.getUrl());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListener.onClick(app);
+            }
+        });
+
         holder.actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
