@@ -41,17 +41,24 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
             }
         });
 
-        if (app.isAndroid()) {
-            holder.actionButton.setVisibility(View.VISIBLE);
-            holder.actionButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    clickListener.onClick(app);
-                }
-            });
-        } else {
+        if (!app.isAndroid()) {
             holder.actionButton.setVisibility(View.GONE);
             holder.actionButton.setOnClickListener(null);
+            return;
+        }
+
+        holder.actionButton.setVisibility(View.VISIBLE);
+        holder.actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListener.onClick(app);
+            }
+        });
+
+        if (app.isInstalled()) {
+            holder.actionButton.setText(context.getString(R.string.button_open));
+        } else {
+            holder.actionButton.setText(context.getString(R.string.button_download));
         }
     }
 

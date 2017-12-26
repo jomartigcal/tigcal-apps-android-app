@@ -6,6 +6,7 @@ public class App {
     private String url;
     private String packageName = "";
     private boolean android = false;
+    private boolean installed = false;
 
     public String getName() {
         return name;
@@ -45,5 +46,13 @@ public class App {
 
     public void setAndroid(boolean android) {
         this.android = android;
+    }
+
+    public boolean isInstalled() {
+        return installed;
+    }
+
+    public void setInstalled(boolean installed) {
+        this.installed = installed;
     }
 }
