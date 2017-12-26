@@ -14,6 +14,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
     private Context context;
     private List<App> apps;
     private OnClickListener clickListener;
+    private OnButtonClickListener buttonClickListener;
 
     AppAdapter(Context context, List<App> apps, OnClickListener clickListener) {
         this.context = context;
@@ -51,7 +52,9 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
         holder.actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clickListener.onClick(app);
+                if(buttonClickListener != null) {
+                    buttonClickListener.onButtonClick(app);
+                }
             }
         });
 
@@ -65,6 +68,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
     @Override
     public int getItemCount() {
         return apps.size();
+    }
+
+    public void setButtonClickListener(OnButtonClickListener buttonClickListener) {
+        this.buttonClickListener = buttonClickListener;
     }
 
     class AppViewHolder extends RecyclerView.ViewHolder {
@@ -82,5 +89,9 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
 
     public interface OnClickListener {
         void onClick(App app);
+    }
+
+    public interface OnButtonClickListener {
+        void onButtonClick(App app);
     }
 }

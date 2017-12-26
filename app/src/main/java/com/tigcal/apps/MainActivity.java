@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getName();
 
     private RecyclerView appsRecyclerView;
 
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setTitle(getString(R.string.menu_android));
 
         List<App> androidApps = AppUtils.getAndroidApps();
-        for(App androidApp : androidApps) {
+        for (App androidApp : androidApps) {
             androidApp.setInstalled(isAndroidAppInstalled(androidApp));
         }
 
@@ -61,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(App app) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+            }
+        });
+        appAdapter.setButtonClickListener(new AppAdapter.OnButtonClickListener() {
+            @Override
+            public void onButtonClick(App app) {
+                startActivity(getPackageManager().getLaunchIntentForPackage(app.getPackageName()));
             }
         });
         appsRecyclerView.setAdapter(appAdapter);
@@ -95,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             getPackageManager().getPackageInfo(androidApp.getPackageName(), 0);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
-            return  false;
+            return false;
         }
     }
 }
