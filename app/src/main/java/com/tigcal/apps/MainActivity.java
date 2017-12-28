@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -67,7 +68,12 @@ public class MainActivity extends AppCompatActivity {
         appAdapter.setButtonClickListener(new AppAdapter.OnButtonClickListener() {
             @Override
             public void onButtonClick(App app) {
-                startActivity(getPackageManager().getLaunchIntentForPackage(app.getPackageName()));
+                Intent intent = getPackageManager().getLaunchIntentForPackage(app.getPackageName());
+                if (intent != null) {
+                    startActivity(intent);
+                } else {
+                    Snackbar.make(appsRecyclerView, "Unable to open the app", Snackbar.LENGTH_SHORT).show();
+                }
             }
         });
         appsRecyclerView.setAdapter(appAdapter);
