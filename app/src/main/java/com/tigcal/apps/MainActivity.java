@@ -68,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
         appAdapter.setButtonClickListener(new AppAdapter.OnButtonClickListener() {
             @Override
             public void onButtonClick(App app) {
+                if(!app.isInstalled()) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+                    return;
+                }
+
                 Intent intent = getPackageManager().getLaunchIntentForPackage(app.getPackageName());
                 if (intent != null) {
                     startActivity(intent);
