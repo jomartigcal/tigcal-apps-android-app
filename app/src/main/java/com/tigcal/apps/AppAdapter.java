@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -42,6 +43,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
             }
         });
 
+        if(app.getIcon() != 0) {
+            holder.appIcon.setImageResource(app.getIcon());
+        }
+
         if (!app.isAndroid()) {
             holder.actionButton.setVisibility(View.GONE);
             holder.actionButton.setOnClickListener(null);
@@ -75,12 +80,14 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
     }
 
     class AppViewHolder extends RecyclerView.ViewHolder {
+        ImageView appIcon;
         TextView nameText;
         TextView urlText;
         Button actionButton;
 
         AppViewHolder(View itemView) {
             super(itemView);
+            appIcon = itemView.findViewById(R.id.app_icon);
             nameText = itemView.findViewById(R.id.app_name_text);
             urlText = itemView.findViewById(R.id.app_url_text);
             actionButton = itemView.findViewById(R.id.app_button);

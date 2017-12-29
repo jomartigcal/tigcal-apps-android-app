@@ -1,8 +1,11 @@
 package com.tigcal.apps;
 
+import android.support.annotation.DrawableRes;
+
 public class App {
     private String name;
-    private String photo;
+    @DrawableRes
+    private int icon;
     private String url;
     private String packageName = "";
     private boolean android = false;
@@ -16,12 +19,12 @@ public class App {
         this.name = name;
     }
 
-    public String getPhoto() {
-        return photo;
+    public int getIcon() {
+        return icon;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setIcon(int icon) {
+        this.icon = icon;
     }
 
     public String getUrl() {
