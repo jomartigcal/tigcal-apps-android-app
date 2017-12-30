@@ -91,11 +91,13 @@ public class AppUtils {
         App app = new App();
         app.setName("Budget Penny");
         app.setUrl("https://assistant.google.com/services/a/id/386ffed76114e24f");
+        app.setIcon(R.drawable.ic_app_budget_penny);
         assistantApps.add(app);
 
         app = new App();
         app.setName("GDG Philippines");
         app.setUrl("https://assistant.google.com/services/a/id/631a617c588e09c9/");
+        app.setIcon(R.drawable.ic_app_gdg);
         assistantApps.add(app);
 
         return assistantApps;
