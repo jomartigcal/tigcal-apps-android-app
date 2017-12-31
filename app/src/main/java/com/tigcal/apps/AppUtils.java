@@ -109,16 +109,19 @@ public class AppUtils {
         App app = new App();
         app.setName("Android Gradle Extension");
         app.setUrl("https://chrome.google.com/webstore/detail/android-gradle-extension/fhpkfgflphcjlacgolciajdkfodapmcn");
+        app.setIcon(R.drawable.ic_app_age);
         chromeApps.add(app);
 
         app = new App();
         app.setName("Pinoy Jokes");
         app.setUrl("https://chrome.google.com/webstore/detail/pinoy-jokes-chrome-extens/olpaccmgjefjnmojjmhkobjgmofpogai");
+        app.setIcon(R.drawable.ic_app_pinoy_jokes);
         chromeApps.add(app);
 
         app = new App();
         app.setName("GDG Philippines");
         app.setUrl("https://chrome.google.com/webstore/detail/gdg-philippines/pbpopomlbomjpbmpfigaogeodiemmjbm");
+        app.setIcon(R.drawable.ic_app_gdg);
         chromeApps.add(app);
 
         return chromeApps;
