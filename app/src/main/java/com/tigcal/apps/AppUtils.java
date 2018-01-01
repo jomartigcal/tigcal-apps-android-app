@@ -17,6 +17,7 @@ public class AppUtils {
         app.setName("Sweldong Pinoy");
         app.setPackageName("com.tigcal.salarycalculator");
         app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.salarycalculator");
+        app.setIcon(R.drawable.ic_app_sweldong_pinoy);
         androidApps.add(app);
 
         app = new App();
@@ -24,6 +25,7 @@ public class AppUtils {
         app.setName("Pinoy Jokes");
         app.setPackageName("com.tigcal.pinoyjokes");
         app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.pinoyjokes");
+        app.setIcon(R.drawable.ic_app_pinoy_jokes);
         androidApps.add(app);
 
         app = new App();
@@ -31,6 +33,7 @@ public class AppUtils {
         app.setName("GDG Watch Face");
         app.setPackageName("org.gdgph.watchface");
         app.setUrl("https://play.google.com/store/apps/details?id=org.gdgph.watchface");
+        app.setIcon(R.drawable.ic_app_gdg);
         androidApps.add(app);
 
         app = new App();
@@ -38,6 +41,7 @@ public class AppUtils {
         app.setName("Help Me");
         app.setPackageName("com.tigcal.helpme");
         app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.helpme");
+        app.setIcon(R.drawable.ic_app_help_me);
         androidApps.add(app);
 
         app = new App();
@@ -45,6 +49,7 @@ public class AppUtils {
         app.setName("GDG Philippines");
         app.setPackageName("org.gtugphilippines.android");
         app.setUrl("https://play.google.com/store/apps/details?id=org.gtugphilippines.android");
+        app.setIcon(R.drawable.ic_app_gdg);
         androidApps.add(app);
 
         app = new App();
@@ -52,6 +57,7 @@ public class AppUtils {
         app.setName("Boto Ko");
         app.setPackageName("com.tigcal.botoko");
         app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.botoko");
+        app.setIcon(R.drawable.ic_app_boto_ko);
         androidApps.add(app);
 
         app = new App();
@@ -59,6 +65,7 @@ public class AppUtils {
         app.setName("Thirteenth Month");
         app.setPackageName("com.sweldongpinoy.thirteenthmonth");
         app.setUrl("https://play.google.com/store/apps/details?id=com.sweldongpinoy.thirteenthmonth");
+        app.setIcon(R.drawable.ic_app_13th_month);
         androidApps.add(app);
 
         app = new App();
@@ -66,6 +73,7 @@ public class AppUtils {
         app.setName("PHostpaid");
         app.setPackageName("com.tigcal.postpaid");
         app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.postpaid");
+        app.setIcon(R.drawable.ic_app_phostpaid);
         androidApps.add(app);
 
         app = new App();
@@ -73,6 +81,7 @@ public class AppUtils {
         app.setName("Budget Pinoy");
         app.setPackageName("com.sweldongpinoy.budget");
         app.setUrl("https://play.google.com/store/apps/details?id=com.sweldongpinoy.budget");
+        app.setIcon(R.drawable.ic_app_budget_pinoy);
         androidApps.add(app);
 
         app = new App();
@@ -80,6 +89,7 @@ public class AppUtils {
         app.setName("Tigcal Utilities");
         app.setPackageName("com.tigcal.utils");
         app.setUrl("https://play.google.com/apps/testing/com.tigcal.utils");
+        app.setIcon(R.drawable.ic_app_tigcal_utils);
         androidApps.add(app);
 
         return androidApps;
