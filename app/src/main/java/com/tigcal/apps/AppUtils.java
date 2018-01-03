@@ -84,14 +84,6 @@ public class AppUtils {
         app.setIcon(R.drawable.ic_app_budget_pinoy);
         androidApps.add(app);
 
-        app = new App();
-        app.setAndroid(true);
-        app.setName("Tigcal Utilities");
-        app.setPackageName("com.tigcal.utils");
-        app.setUrl("https://play.google.com/apps/testing/com.tigcal.utils");
-        app.setIcon(R.drawable.ic_app_tigcal_utils);
-        androidApps.add(app);
-
         return androidApps;
     }
 
