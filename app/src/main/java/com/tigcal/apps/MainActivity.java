@@ -22,33 +22,37 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        final BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_android:
-                        displayAndroidApps();
-                        return true;
-                    case R.id.action_assistant:
-                        displayAssistantApps();
-                        return true;
-                    case R.id.action_chrome:
-                        displayChromeApps();
-                        return true;
-                }
-
-                return false;
-            }
-        });
+        setContentView(R.layout.layout_main);
 
         appsRecyclerView = findViewById(R.id.apps_recycler_view);
-        appsRecyclerView.setHasFixedSize(true);
-        appsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        if (appsRecyclerView != null) {
+            appsRecyclerView.setHasFixedSize(true);
+            appsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
 
-        bottomNavigationView.setSelectedItemId(R.id.action_android);
+        final BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        if (bottomNavigationView != null) {
+            bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.id.action_android:
+                            displayAndroidApps();
+                            return true;
+                        case R.id.action_assistant:
+                            displayAssistantApps();
+                            return true;
+                        case R.id.action_chrome:
+                            displayChromeApps();
+                            return true;
+                    }
+
+                    return false;
+                }
+            });
+
+            bottomNavigationView.setSelectedItemId(R.id.action_android);
+        }
     }
 
     private void displayAndroidApps() {
@@ -68,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         appAdapter.setButtonClickListener(new AppAdapter.OnButtonClickListener() {
             @Override
             public void onButtonClick(App app) {
-                if(!app.isInstalled()) {
+                if (!app.isInstalled()) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
                     return;
                 }
