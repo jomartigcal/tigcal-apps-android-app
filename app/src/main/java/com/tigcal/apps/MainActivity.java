@@ -25,7 +25,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.layout_main);
 
         appsRecyclerView = findViewById(R.id.apps_recycler_view);
-        if (appsRecyclerView != null) {
+        if (appsRecyclerView == null) {
+            appsRecyclerView = findViewById(R.id.android_recycler_view);
+            appsRecyclerView.setHasFixedSize(true);
+            appsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            displayAndroidApps();
+        } else {
             appsRecyclerView.setHasFixedSize(true);
             appsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         }
