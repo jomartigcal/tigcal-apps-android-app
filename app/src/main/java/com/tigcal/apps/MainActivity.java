@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getName();
 
     private RecyclerView appsRecyclerView;
+    private boolean isDisplayWide = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         appsRecyclerView = findViewById(R.id.apps_recycler_view);
         if (appsRecyclerView == null) {
-            appsRecyclerView = findViewById(R.id.android_recycler_view);
-            appsRecyclerView.setHasFixedSize(true);
-            appsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            displayAndroidApps();
+            isDisplayWide = true;
         } else {
             appsRecyclerView.setHasFixedSize(true);
             appsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -58,11 +56,15 @@ public class MainActivity extends AppCompatActivity {
 
             bottomNavigationView.setSelectedItemId(R.id.action_android);
         }
+
+        if (isDisplayWide) {
+            displayAndroidApps();
+            displayAssistantApps();
+            displayChromeApps();
+        }
     }
 
     private void displayAndroidApps() {
-        setTitle(getString(R.string.menu_android));
-
         List<App> androidApps = AppUtils.getAndroidApps();
         for (App androidApp : androidApps) {
             androidApp.setInstalled(isAndroidAppInstalled(androidApp));
@@ -90,31 +92,58 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        appsRecyclerView.setAdapter(appAdapter);
+
+        if (isDisplayWide) {
+            RecyclerView androidRecyclerView = findViewById(R.id.android_recycler_view);
+            androidRecyclerView.setHasFixedSize(true);
+            androidRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            androidRecyclerView.setAdapter(appAdapter);
+        } else {
+            setTitle(getString(R.string.menu_android));
+
+            appsRecyclerView.setAdapter(appAdapter);
+        }
+
     }
 
     private void displayAssistantApps() {
-        setTitle(getString(R.string.menu_assistant));
-
         AppAdapter appAdapter = new AppAdapter(this, AppUtils.getAssistantApps(), new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
             }
         });
-        appsRecyclerView.setAdapter(appAdapter);
+
+        if (isDisplayWide) {
+            RecyclerView assistantRecyclerView = findViewById(R.id.assistant_recycler_view);
+            assistantRecyclerView.setHasFixedSize(true);
+            assistantRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            assistantRecyclerView.setAdapter(appAdapter);
+        } else {
+            setTitle(getString(R.string.menu_assistant));
+
+            appsRecyclerView.setAdapter(appAdapter);
+        }
     }
 
     private void displayChromeApps() {
-        setTitle(getString(R.string.menu_chrome));
-
         AppAdapter appAdapter = new AppAdapter(this, AppUtils.getChromeApps(), new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
             }
         });
-        appsRecyclerView.setAdapter(appAdapter);
+
+        if (isDisplayWide) {
+            RecyclerView chromeRecyclerView = findViewById(R.id.chrome_recycler_view);
+            chromeRecyclerView.setHasFixedSize(true);
+            chromeRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            chromeRecyclerView.setAdapter(appAdapter);
+        } else {
+            setTitle(getString(R.string.menu_chrome));
+
+            appsRecyclerView.setAdapter(appAdapter);
+        }
     }
 
     private boolean isAndroidAppInstalled(App androidApp) {
