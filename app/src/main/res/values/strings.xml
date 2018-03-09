@@ -7,4 +7,6 @@
 
     <string name="button_download">Download</string>
     <string name="button_open">Open</string>
+
+    <string name="app_cannot_open">Unable to open the app</string>
 </resources>
