@@ -36,13 +36,13 @@ public class AppUtils {
         app.setIcon(R.drawable.ic_app_gdg);
         androidApps.add(app);
 
-        app = new App();
+        /*app = new App();
         app.setAndroid(true);
         app.setName("Help Me");
         app.setPackageName("com.tigcal.helpme");
         app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.helpme");
         app.setIcon(R.drawable.ic_app_help_me);
-        androidApps.add(app);
+        androidApps.add(app);*/
 
         app = new App();
         app.setAndroid(true);
