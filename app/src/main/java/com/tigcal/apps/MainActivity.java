@@ -1,7 +1,6 @@
 package com.tigcal.apps;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -65,10 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayAndroidApps() {
-        List<App> androidApps = AppUtils.getAndroidApps();
-        for (App androidApp : androidApps) {
-            androidApp.setInstalled(isAndroidAppInstalled(androidApp));
-        }
+        List<App> androidApps = AppUtils.getAndroidApps(this);
 
         AppAdapter appAdapter = new AppAdapter(this, androidApps, new AppAdapter.OnClickListener() {
             @Override
@@ -143,15 +139,6 @@ public class MainActivity extends AppCompatActivity {
             setTitle(getString(R.string.menu_chrome));
 
             appsRecyclerView.setAdapter(appAdapter);
-        }
-    }
-
-    private boolean isAndroidAppInstalled(App androidApp) {
-        try {
-            getPackageManager().getPackageInfo(androidApp.getPackageName(), 0);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
         }
     }
 }
