@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class AppUtils {
+    private static Comparator<App> appComparator = new AppComparator();
 
     private AppUtils() {
 
@@ -99,6 +102,8 @@ public class AppUtils {
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
 
+        Collections.sort(androidApps, appComparator);
+
         return androidApps;
     }
 
@@ -116,6 +121,8 @@ public class AppUtils {
         app.setUrl("https://assistant.google.com/services/a/id/631a617c588e09c9/");
         app.setIcon(R.drawable.ic_app_gdg);
         assistantApps.add(app);
+
+        Collections.sort(assistantApps, appComparator);
 
         return assistantApps;
     }
@@ -141,6 +148,8 @@ public class AppUtils {
         app.setIcon(R.drawable.ic_app_gdg);
         chromeApps.add(app);
 
+        Collections.sort(chromeApps, appComparator);
+
         return chromeApps;
     }
 
@@ -150,6 +159,14 @@ public class AppUtils {
             return true;
         } catch (PackageManager.NameNotFoundException e) {
             return false;
+        }
+    }
+
+    private static class AppComparator implements Comparator<App> {
+
+        @Override
+        public int compare(App app1, App app2) {
+            return app1.getName().compareTo(app2.getName());
         }
     }
 }
