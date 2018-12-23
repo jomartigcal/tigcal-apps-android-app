@@ -102,6 +102,18 @@ public class AppUtils {
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
 
+        app = new App();
+        app.setAndroid(true);
+        app.setName("Tigcal Utils");
+        app.setPackageName("com.tigcal.utils");
+        app.setUrl("https://play.google.com/apps/testing/com.tigcal.utils");
+        app.setIcon(R.drawable.ic_app_tigcal_utils);
+        isInstalled = isAndroidAppInstalled(context, app);
+        app.setInstalled(isInstalled);
+        if (isInstalled) {
+            androidApps.add(app);
+        }
+
         Collections.sort(androidApps, appComparator);
 
         return androidApps;
