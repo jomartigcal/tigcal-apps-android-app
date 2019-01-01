@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     Snackbar.make(appsRecyclerView, getString(R.string.app_cannot_open), Snackbar.LENGTH_SHORT).show();
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
                 }
             }
         });
