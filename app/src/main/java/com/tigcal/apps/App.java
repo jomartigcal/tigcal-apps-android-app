@@ -1,6 +1,6 @@
 package com.tigcal.apps;
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 
 public class App {
     private String name;
