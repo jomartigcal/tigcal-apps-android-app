@@ -9,4 +9,9 @@
     <string name="button_open">Open</string>
 
     <string name="app_cannot_open">Unable to open the app</string>
+
+    <string name="about_header">About</string>
+    <string name="about_description">Tigcal Apps and Projects \n</string>
+    <string name="about_contact_info">For comments or suggestions, send an email at <a href="mailto:jomar@tigcal.com">jomar@tigcal.com</a>.\n\n</string>
+    <string name="about_developer">Developed by <a href="https://jomar.tigcal.com">Jomar Tigcal</a> \n</string>
 </resources>
