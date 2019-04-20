@@ -1,15 +1,20 @@
 package com.tigcal.apps;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.tigcal.apps.views.AboutDialog;
 
 import java.util.List;
 
@@ -63,6 +68,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_about:
+                final Dialog aboutDialog = new AboutDialog(this);
+                aboutDialog.show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void displayAndroidApps() {
         List<App> androidApps = AppUtils.getAndroidApps(this);
 
@@ -100,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
 
             appsRecyclerView.setAdapter(appAdapter);
         }
-
     }
 
     private void displayAssistantApps() {
