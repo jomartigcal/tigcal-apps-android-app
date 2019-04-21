@@ -2,8 +2,11 @@ package com.tigcal.apps;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -80,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_about:
                 final Dialog aboutDialog = new AboutDialog(this);
                 aboutDialog.show();
+                return true;
+            case R.id.menu_feedback:
+                sendFeedback();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -163,5 +169,37 @@ public class MainActivity extends AppCompatActivity {
 
             appsRecyclerView.setAdapter(appAdapter);
         }
+    }
+
+    private void sendFeedback() {
+        StringBuilder deviceInfoBuilder = new StringBuilder();
+        deviceInfoBuilder.append("\n\n--------------------");
+        deviceInfoBuilder.append("\nDevice Information:");
+        try {
+            deviceInfoBuilder.append("\n App Version: ");
+            deviceInfoBuilder.append(getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "package name not found");
+        }
+        deviceInfoBuilder.append("\n OS Version: ")
+                .append(System.getProperty("os.version"))
+                .append("(")
+                .append(android.os.Build.VERSION.INCREMENTAL)
+                .append(")");
+        deviceInfoBuilder.append("\n OS API Level: ")
+                .append(android.os.Build.VERSION.SDK_INT);
+        deviceInfoBuilder.append("\n Manufacturer: ")
+                .append(Build.MANUFACTURER);
+        deviceInfoBuilder.append("\n Model (Product): ")
+                .append(android.os.Build.MODEL)
+                .append(" (")
+                .append(android.os.Build.PRODUCT)
+                .append(")");
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:info@sweldongpinoy.com"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.send_feedback_subject, getString(R.string.app_name)));
+        intent.putExtra(Intent.EXTRA_TEXT, deviceInfoBuilder.toString());
+        startActivity(Intent.createChooser(intent, getString(R.string.send_feedback_header)));
     }
 }
