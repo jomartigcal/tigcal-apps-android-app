@@ -101,6 +101,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
             }
         });
+
+        final RecyclerView androidRecyclerView = findViewById(R.id.android_recycler_view);
+        if (isDisplayWide) {
+            androidRecyclerView.setHasFixedSize(true);
+            androidRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            androidRecyclerView.setAdapter(appAdapter);
+        } else {
+            setTitle(getString(R.string.menu_android));
+
+            appsRecyclerView.setAdapter(appAdapter);
+        }
+
         appAdapter.setButtonClickListener(new AppAdapter.OnButtonClickListener() {
             @Override
             public void onButtonClick(App app) {
@@ -113,22 +125,11 @@ public class MainActivity extends AppCompatActivity {
                 if (intent != null) {
                     startActivity(intent);
                 } else {
-                    Snackbar.make(appsRecyclerView, getString(R.string.app_cannot_open), Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(isDisplayWide ? androidRecyclerView : appsRecyclerView, getString(R.string.app_cannot_open), Snackbar.LENGTH_SHORT).show();
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
                 }
             }
         });
-
-        if (isDisplayWide) {
-            RecyclerView androidRecyclerView = findViewById(R.id.android_recycler_view);
-            androidRecyclerView.setHasFixedSize(true);
-            androidRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            androidRecyclerView.setAdapter(appAdapter);
-        } else {
-            setTitle(getString(R.string.menu_android));
-
-            appsRecyclerView.setAdapter(appAdapter);
-        }
     }
 
     private void displayAssistantApps() {
