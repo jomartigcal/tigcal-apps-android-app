@@ -1,13 +1,15 @@
 package com.tigcal.apps;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -30,7 +32,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(AppViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AppViewHolder holder, int position) {
         final App app = apps.get(position);
 
         holder.nameText.setText(app.getName());
