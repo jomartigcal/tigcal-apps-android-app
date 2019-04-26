@@ -5,7 +5,7 @@
     <string name="menu_assistant">Assistant</string>
     <string name="menu_chrome">Chrome</string>
 
-    <string name="button_download">Download</string>
+    <string name="button_download">Install</string>
     <string name="button_open">Open</string>
 
     <string name="app_cannot_open">Unable to open the app</string>

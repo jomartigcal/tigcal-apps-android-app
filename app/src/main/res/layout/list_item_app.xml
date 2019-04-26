@@ -27,6 +27,8 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:ellipsize="end"
+        android:lines="1"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         android:textColor="@color/colorPrimaryText"
         android:textStyle="bold"
@@ -36,7 +38,7 @@
         app:layout_constraintStart_toEndOf="@+id/app_icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text="App" />
+        tools:text="App Name" />
 
     <TextView
         android:id="@+id/app_url_text"
@@ -68,5 +70,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Install" />
+        tools:text="@string/button_download" />
 </androidx.constraintlayout.widget.ConstraintLayout>
