@@ -30,13 +30,13 @@ public class AboutDialog extends Dialog {
         }
         appVersionBuilder.append("\n");
 
-        final TextView appVersion = findViewById(R.id.app_version);
+        final TextView appVersion = findViewById(R.id.version_text);
         appVersion.setText(appVersionBuilder.toString());
 
         MovementMethod linkMovementMethod = LinkMovementMethod.getInstance();
-        final TextView appDevelopers = findViewById(R.id.about_developer);
-        appDevelopers.setMovementMethod(linkMovementMethod);
-        final TextView contactTextView = findViewById(R.id.about_contact_info);
+        final TextView descriptionText = findViewById(R.id.about_text);
+        descriptionText.setMovementMethod(linkMovementMethod);
+        final TextView contactTextView = findViewById(R.id.contact_info_text);
         contactTextView.setMovementMethod(linkMovementMethod);
     }
 
