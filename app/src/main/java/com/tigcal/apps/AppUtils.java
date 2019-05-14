@@ -41,7 +41,7 @@ public class AppUtils {
         app.setName("GDG Watch Face");
         app.setPackageName("org.gdgph.watchface");
         app.setUrl("https://play.google.com/store/apps/details?id=org.gdgph.watchface");
-        app.setIcon(R.drawable.ic_app_gdg);
+        app.setIcon(R.drawable.ic_app_gdg_old);
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
 
@@ -131,7 +131,7 @@ public class AppUtils {
         app = new App();
         app.setName("GDG Philippines");
         app.setUrl("https://assistant.google.com/services/a/id/631a617c588e09c9/");
-        app.setIcon(R.drawable.ic_app_gdg);
+        app.setIcon(R.drawable.ic_app_gdg_old);
         assistantApps.add(app);
 
         Collections.sort(assistantApps, appComparator);
@@ -157,7 +157,7 @@ public class AppUtils {
         app = new App();
         app.setName("GDG Philippines");
         app.setUrl("https://chrome.google.com/webstore/detail/gdg-philippines/pbpopomlbomjpbmpfigaogeodiemmjbm");
-        app.setIcon(R.drawable.ic_app_gdg);
+        app.setIcon(R.drawable.ic_app_gdg_old);
         chromeApps.add(app);
 
         Collections.sort(chromeApps, appComparator);
