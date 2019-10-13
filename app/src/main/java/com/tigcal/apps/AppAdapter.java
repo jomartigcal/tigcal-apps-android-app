@@ -45,7 +45,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
             }
         });
 
-        if(app.getIcon() != 0) {
+        if (app.getIcon() != 0) {
             holder.appIcon.setImageResource(app.getIcon());
         }
 
@@ -59,7 +59,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
         holder.actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(buttonClickListener != null) {
+                if (buttonClickListener != null) {
                     buttonClickListener.onButtonClick(app);
                 }
             }
