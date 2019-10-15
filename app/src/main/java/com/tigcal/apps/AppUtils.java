@@ -114,6 +114,18 @@ public class AppUtils {
             androidApps.add(app);
         }
 
+        app = new App();
+        app.setAndroid(true);
+        app.setName("You and Me");
+        app.setPackageName("com.tigcal.youandme");
+        app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.youandme");
+        app.setIcon(R.drawable.ic_app_yumi);
+        isInstalled = isAndroidAppInstalled(context, app);
+        app.setInstalled(isInstalled);
+        if (isInstalled) {
+            androidApps.add(app);
+        }
+
         Collections.sort(androidApps, appComparator);
 
         return androidApps;
