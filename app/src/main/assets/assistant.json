@@ -1,0 +1,17 @@
+{
+  "date": "2019-10-15T00:00:00.000Z",
+  "apps": [
+    {
+      "name": "Budget Penny",
+      "icon": "ic_app_budget_penny",
+      "link": "https://assistant.google.com/services/a/id/386ffed76114e24f",
+      "isAndroid": false
+    },
+    {
+      "name": "GDG Philippines",
+      "icon": "ic_app_gdg_old",
+      "link": "https://assistant.google.com/services/a/id/386ffed76114e24f",
+      "isAndroid": false
+    }
+  ]
+}
