@@ -1,0 +1,23 @@
+{
+  "date": "2019-10-16T00:00:00.000Z",
+  "apps": [
+    {
+      "name": "Android Gradle Extension",
+      "icon": "ic_app_age",
+      "link": "https://chrome.google.com/webstore/detail/android-gradle-extension/fhpkfgflphcjlacgolciajdkfodapmcn",
+      "isAndroid": false
+    },
+    {
+      "name": "GDG Philippines",
+      "icon": "ic_app_gdg_old",
+      "link": "https://chrome.google.com/webstore/detail/gdg-philippines/pbpopomlbomjpbmpfigaogeodiemmjbm",
+      "isAndroid": false
+    },
+    {
+      "name": "Pinoy Jokes",
+      "icon": "ic_app_pinoy_jokes",
+      "link": "https://chrome.google.com/webstore/detail/pinoy-jokes-chrome-extens/olpaccmgjefjnmojjmhkobjgmofpogai",
+      "isAndroid": false
+    }
+  ]
+}
