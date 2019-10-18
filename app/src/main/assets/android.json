@@ -1,0 +1,61 @@
+{
+  "date": "2019-10-17T00:00:00.000Z",
+  "apps": [
+    {
+      "name": "Boto Ko",
+      "icon": "ic_app_boto_ko",
+      "link": "https://play.google.com/store/apps/details?id=com.tigcal.botoko",
+      "isAndroid": true,
+      "packageName": "com.tigcal.botoko"
+    },
+    {
+      "name": "Budget Pinoy",
+      "icon": "ic_app_budget_pinoy",
+      "link": "https://play.google.com/store/apps/details?id=com.sweldongpinoy.budget",
+      "isAndroid": true,
+      "packageName": "com.sweldongpinoy.budget"
+    },
+    {
+      "name": "GDG Philippines",
+      "icon": "ic_app_gdg",
+      "link": "https://play.google.com/store/apps/details?id=org.gtugphilippines.android",
+      "isAndroid": true,
+      "packageName": "org.gtugphilippines.android"
+    },
+    {
+      "name": "GDG Watch Face",
+      "icon": "ic_app_gdg_old",
+      "link": "https://play.google.com/store/apps/details?id=org.gdgph.watchface",
+      "isAndroid": true,
+      "packageName": "org.gdgph.watchface"
+    },
+    {
+      "name": "PHostpaid",
+      "icon": "ic_app_phostpaid",
+      "link": "https://play.google.com/store/apps/details?id=com.tigcal.postpaid",
+      "isAndroid": true,
+      "packageName": "com.tigcal.postpaid"
+    },
+    {
+      "name": "Pinoy Jokes",
+      "icon": "ic_app_pinoy_jokes",
+      "link": "https://play.google.com/store/apps/details?id=com.tigcal.pinoyjokes",
+      "isAndroid": true,
+      "packageName": "com.tigcal.pinoyjokes"
+    },
+    {
+      "name": "Sweldong Pinoy",
+      "icon": "ic_app_sweldong_pinoy",
+      "link": "https://play.google.com/store/apps/details?id=com.tigcal.salarycalculator",
+      "isAndroid": true,
+      "packageName": "com.tigcal.salarycalculator"
+    },
+    {
+      "name": "Thirteenth Month",
+      "icon": "ic_app_13th_month",
+      "link": "https://play.google.com/store/apps/details?id=com.sweldongpinoy.thirteenthmonth",
+      "isAndroid": true,
+      "packageName": "com.sweldongpinoy.thirteenthmonth"
+    }
+  ]
+}
