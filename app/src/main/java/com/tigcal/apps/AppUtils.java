@@ -2,13 +2,24 @@ package com.tigcal.apps;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.util.Log;
 
+import androidx.annotation.DrawableRes;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class AppUtils {
+    private static final String TAG = AppUtils.class.getSimpleName();
+
     private static Comparator<App> appComparator = new AppComparator();
 
     private AppUtils() {
@@ -151,30 +162,57 @@ public class AppUtils {
         return assistantApps;
     }
 
-    public static List<App> getChromeApps() {
-        List<App> chromeApps = new ArrayList<>();
-
-        App app = new App();
-        app.setName("Android Gradle Extension");
-        app.setUrl("https://chrome.google.com/webstore/detail/android-gradle-extension/fhpkfgflphcjlacgolciajdkfodapmcn");
-        app.setIcon(R.drawable.ic_app_age);
-        chromeApps.add(app);
-
-        app = new App();
-        app.setName("Pinoy Jokes");
-        app.setUrl("https://chrome.google.com/webstore/detail/pinoy-jokes-chrome-extens/olpaccmgjefjnmojjmhkobjgmofpogai");
-        app.setIcon(R.drawable.ic_app_pinoy_jokes);
-        chromeApps.add(app);
-
-        app = new App();
-        app.setName("GDG Philippines");
-        app.setUrl("https://chrome.google.com/webstore/detail/gdg-philippines/pbpopomlbomjpbmpfigaogeodiemmjbm");
-        app.setIcon(R.drawable.ic_app_gdg_old);
-        chromeApps.add(app);
+    public static List<App> getChromeApps(Context context) {
+        List<App> chromeApps = getApps(context, "chrome.json");
 
         Collections.sort(chromeApps, appComparator);
 
         return chromeApps;
+    }
+
+    private static List<App> getApps(Context context, String jsonFile) {
+        List<App> apps = new ArrayList<>();
+
+        String appsJson = getAppsJson(context, jsonFile);
+        try {
+            JSONObject parentObject = new JSONObject(appsJson);
+            apps = parseApps(parentObject.optJSONArray("apps"));
+        } catch (JSONException e) {
+            Log.e(TAG, "JSONException in getApps: " + e.getLocalizedMessage());
+        }
+
+        return apps;
+    }
+
+    private static String getAppsJson(Context context, String jsonFile) {
+        try {
+            InputStream inputStream = context.getAssets().open(jsonFile);
+            byte[] buffer = new byte[inputStream.available()];
+            inputStream.read(buffer);
+            inputStream.close();
+            return new String(buffer, "UTF-8");
+        } catch (IOException e) {
+            Log.e(TAG, "IOException in getAppsJson: " + e.getLocalizedMessage());
+            return "";
+        }
+    }
+
+    private static List<App> parseApps(JSONArray appsJsonArray) {
+        List<App> appList = new ArrayList<>();
+        for (int i = 0; i < appsJsonArray.length(); i++) {
+            JSONObject appObject = appsJsonArray.optJSONObject(i);
+            if (appObject != null) {
+                App app = new App();
+                app.setName(appObject.optString("name"));
+                //TODO get icon from resources with name from appObject.optString("icon")
+                app.setIcon(R.mipmap.ic_launcher);
+                app.setUrl(appObject.optString("link"));
+                app.setAndroid(appObject.optBoolean("isAndroid"));
+                appList.add(app);
+            }
+        }
+
+        return appList;
     }
 
     private static boolean isAndroidAppInstalled(Context context, App androidApp) {

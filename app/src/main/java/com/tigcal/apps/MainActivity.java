@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayChromeApps() {
-        AppAdapter appAdapter = new AppAdapter(this, AppUtils.getChromeApps(), new AppAdapter.OnClickListener() {
+        AppAdapter appAdapter = new AppAdapter(this, AppUtils.getChromeApps(this), new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
