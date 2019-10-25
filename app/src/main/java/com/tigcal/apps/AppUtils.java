@@ -176,7 +176,7 @@ public class AppUtils {
         String appsJson = getAppsJson(context, jsonFile);
         try {
             JSONObject parentObject = new JSONObject(appsJson);
-            apps = parseApps(parentObject.optJSONArray("apps"));
+            apps = parseApps(context, parentObject.optJSONArray("apps"));
         } catch (JSONException e) {
             Log.e(TAG, "JSONException in getApps: " + e.getLocalizedMessage());
         }
@@ -197,15 +197,14 @@ public class AppUtils {
         }
     }
 
-    private static List<App> parseApps(JSONArray appsJsonArray) {
+    private static List<App> parseApps(Context context, JSONArray appsJsonArray) {
         List<App> appList = new ArrayList<>();
         for (int i = 0; i < appsJsonArray.length(); i++) {
             JSONObject appObject = appsJsonArray.optJSONObject(i);
             if (appObject != null) {
                 App app = new App();
                 app.setName(appObject.optString("name"));
-                //TODO get icon from resources with name from appObject.optString("icon")
-                app.setIcon(R.mipmap.ic_launcher);
+                app.setIcon(getDrawableById(context, appObject.optString("icon")));
                 app.setUrl(appObject.optString("link"));
                 app.setAndroid(appObject.optBoolean("isAndroid"));
                 appList.add(app);
@@ -222,6 +221,11 @@ public class AppUtils {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    private @DrawableRes
+    static int getDrawableById(Context context, String drawableId) {
+        return context.getResources().getIdentifier(drawableId, "drawable", context.getPackageName());
     }
 
     private static class AppComparator implements Comparator<App> {
