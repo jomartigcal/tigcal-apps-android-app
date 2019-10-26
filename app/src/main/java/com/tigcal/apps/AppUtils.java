@@ -33,7 +33,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("Sweldong Pinoy");
         app.setPackageName("com.tigcal.salarycalculator");
-        app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.salarycalculator");
+        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.salarycalculator");
         app.setIcon(R.drawable.ic_app_sweldong_pinoy);
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
@@ -42,7 +42,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("Pinoy Jokes");
         app.setPackageName("com.tigcal.pinoyjokes");
-        app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.pinoyjokes");
+        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.pinoyjokes");
         app.setIcon(R.drawable.ic_app_pinoy_jokes);
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
@@ -51,7 +51,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("GDG Watch Face");
         app.setPackageName("org.gdgph.watchface");
-        app.setUrl("https://play.google.com/store/apps/details?id=org.gdgph.watchface");
+        app.setLink("https://play.google.com/store/apps/details?id=org.gdgph.watchface");
         app.setIcon(R.drawable.ic_app_gdg_old);
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
@@ -60,7 +60,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("Help Me");
         app.setPackageName("com.tigcal.helpme");
-        app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.helpme");
+        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.helpme");
         app.setIcon(R.drawable.ic_app_help_me);
         boolean isInstalled = isAndroidAppInstalled(context, app);
         app.setInstalled(isInstalled);
@@ -72,7 +72,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("GDG Philippines");
         app.setPackageName("org.gtugphilippines.android");
-        app.setUrl("https://play.google.com/store/apps/details?id=org.gtugphilippines.android");
+        app.setLink("https://play.google.com/store/apps/details?id=org.gtugphilippines.android");
         app.setIcon(R.drawable.ic_app_gdg);
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
@@ -81,7 +81,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("Boto Ko");
         app.setPackageName("com.tigcal.botoko");
-        app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.botoko");
+        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.botoko");
         app.setIcon(R.drawable.ic_app_boto_ko);
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
@@ -90,7 +90,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("Thirteenth Month");
         app.setPackageName("com.sweldongpinoy.thirteenthmonth");
-        app.setUrl("https://play.google.com/store/apps/details?id=com.sweldongpinoy.thirteenthmonth");
+        app.setLink("https://play.google.com/store/apps/details?id=com.sweldongpinoy.thirteenthmonth");
         app.setIcon(R.drawable.ic_app_13th_month);
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
@@ -99,7 +99,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("PHostpaid");
         app.setPackageName("com.tigcal.postpaid");
-        app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.postpaid");
+        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.postpaid");
         app.setIcon(R.drawable.ic_app_phostpaid);
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
@@ -108,7 +108,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("Budget Pinoy");
         app.setPackageName("com.sweldongpinoy.budget");
-        app.setUrl("https://play.google.com/store/apps/details?id=com.sweldongpinoy.budget");
+        app.setLink("https://play.google.com/store/apps/details?id=com.sweldongpinoy.budget");
         app.setIcon(R.drawable.ic_app_budget_pinoy);
         app.setInstalled(isAndroidAppInstalled(context, app));
         androidApps.add(app);
@@ -117,7 +117,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("Tigcal Utils");
         app.setPackageName("com.tigcal.utils");
-        app.setUrl("https://play.google.com/apps/testing/com.tigcal.utils");
+        app.setLink("https://play.google.com/apps/testing/com.tigcal.utils");
         app.setIcon(R.drawable.ic_app_tigcal_utils);
         isInstalled = isAndroidAppInstalled(context, app);
         app.setInstalled(isInstalled);
@@ -129,7 +129,7 @@ public class AppUtils {
         app.setAndroid(true);
         app.setName("You and Me");
         app.setPackageName("com.tigcal.youandme");
-        app.setUrl("https://play.google.com/store/apps/details?id=com.tigcal.youandme");
+        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.youandme");
         app.setIcon(R.drawable.ic_app_yumi);
         isInstalled = isAndroidAppInstalled(context, app);
         app.setInstalled(isInstalled);
@@ -205,7 +205,7 @@ public class AppUtils {
                 App app = new App();
                 app.setName(appObject.optString("name"));
                 app.setIcon(getDrawableById(context, appObject.optString("icon")));
-                app.setUrl(appObject.optString("link"));
+                app.setLink(appObject.optString("link"));
                 app.setAndroid(appObject.optBoolean("isAndroid"));
                 appList.add(app);
             }

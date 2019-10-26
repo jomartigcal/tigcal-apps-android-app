@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         AppAdapter appAdapter = new AppAdapter(this, androidApps, new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getLink())));
             }
         });
 
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onButtonClick(App app) {
                 if (!app.isInstalled()) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getLink())));
                     return;
                 }
 
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     Snackbar.make(isDisplayWide ? androidRecyclerView : appsRecyclerView, getString(R.string.app_cannot_open), Snackbar.LENGTH_SHORT).show();
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getLink())));
                 }
             }
         });
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         AppAdapter appAdapter = new AppAdapter(this, AppUtils.getAssistantApps(), new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getLink())));
             }
         });
 
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         AppAdapter appAdapter = new AppAdapter(this, AppUtils.getChromeApps(this), new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getUrl())));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getLink())));
             }
         });
 
