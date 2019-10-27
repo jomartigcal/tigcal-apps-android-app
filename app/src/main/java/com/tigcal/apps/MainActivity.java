@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayAssistantApps() {
-        AppAdapter appAdapter = new AppAdapter(this, AppUtils.getAssistantApps(), new AppAdapter.OnClickListener() {
+        AppAdapter appAdapter = new AppAdapter(this, AppUtils.getAssistantApps(this), new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getLink())));

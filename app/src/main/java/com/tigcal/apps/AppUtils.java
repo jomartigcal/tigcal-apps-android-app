@@ -142,20 +142,8 @@ public class AppUtils {
         return androidApps;
     }
 
-    public static List<App> getAssistantApps() {
-        List<App> assistantApps = new ArrayList<>();
-
-        App app = new App();
-        app.setName("Budget Penny");
-        app.setUrl("https://assistant.google.com/services/a/id/386ffed76114e24f");
-        app.setIcon(R.drawable.ic_app_budget_penny);
-        assistantApps.add(app);
-
-        app = new App();
-        app.setName("GDG Philippines");
-        app.setUrl("https://assistant.google.com/services/a/id/631a617c588e09c9/");
-        app.setIcon(R.drawable.ic_app_gdg_old);
-        assistantApps.add(app);
+    public static List<App> getAssistantApps(Context context) {
+        List<App> assistantApps = getApps(context, "assistant.json");
 
         Collections.sort(assistantApps, appComparator);
 
