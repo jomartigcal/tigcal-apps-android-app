@@ -27,36 +27,13 @@ public class AppUtils {
     }
 
     public static List<App> getAndroidApps(Context context) {
-        List<App> androidApps = new ArrayList<>();
+        List<App> androidApps = getApps(context, "android.json");
+
+        for (App app : androidApps) {
+            app.setInstalled(isAndroidAppInstalled(context, app));
+        }
 
         App app = new App();
-        app.setAndroid(true);
-        app.setName("Sweldong Pinoy");
-        app.setPackageName("com.tigcal.salarycalculator");
-        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.salarycalculator");
-        app.setIcon(R.drawable.ic_app_sweldong_pinoy);
-        app.setInstalled(isAndroidAppInstalled(context, app));
-        androidApps.add(app);
-
-        app = new App();
-        app.setAndroid(true);
-        app.setName("Pinoy Jokes");
-        app.setPackageName("com.tigcal.pinoyjokes");
-        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.pinoyjokes");
-        app.setIcon(R.drawable.ic_app_pinoy_jokes);
-        app.setInstalled(isAndroidAppInstalled(context, app));
-        androidApps.add(app);
-
-        app = new App();
-        app.setAndroid(true);
-        app.setName("GDG Watch Face");
-        app.setPackageName("org.gdgph.watchface");
-        app.setLink("https://play.google.com/store/apps/details?id=org.gdgph.watchface");
-        app.setIcon(R.drawable.ic_app_gdg_old);
-        app.setInstalled(isAndroidAppInstalled(context, app));
-        androidApps.add(app);
-
-        app = new App();
         app.setAndroid(true);
         app.setName("Help Me");
         app.setPackageName("com.tigcal.helpme");
@@ -67,51 +44,6 @@ public class AppUtils {
         if (isInstalled) {
             androidApps.add(app);
         }
-
-        app = new App();
-        app.setAndroid(true);
-        app.setName("GDG Philippines");
-        app.setPackageName("org.gtugphilippines.android");
-        app.setLink("https://play.google.com/store/apps/details?id=org.gtugphilippines.android");
-        app.setIcon(R.drawable.ic_app_gdg);
-        app.setInstalled(isAndroidAppInstalled(context, app));
-        androidApps.add(app);
-
-        app = new App();
-        app.setAndroid(true);
-        app.setName("Boto Ko");
-        app.setPackageName("com.tigcal.botoko");
-        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.botoko");
-        app.setIcon(R.drawable.ic_app_boto_ko);
-        app.setInstalled(isAndroidAppInstalled(context, app));
-        androidApps.add(app);
-
-        app = new App();
-        app.setAndroid(true);
-        app.setName("Thirteenth Month");
-        app.setPackageName("com.sweldongpinoy.thirteenthmonth");
-        app.setLink("https://play.google.com/store/apps/details?id=com.sweldongpinoy.thirteenthmonth");
-        app.setIcon(R.drawable.ic_app_13th_month);
-        app.setInstalled(isAndroidAppInstalled(context, app));
-        androidApps.add(app);
-
-        app = new App();
-        app.setAndroid(true);
-        app.setName("PHostpaid");
-        app.setPackageName("com.tigcal.postpaid");
-        app.setLink("https://play.google.com/store/apps/details?id=com.tigcal.postpaid");
-        app.setIcon(R.drawable.ic_app_phostpaid);
-        app.setInstalled(isAndroidAppInstalled(context, app));
-        androidApps.add(app);
-
-        app = new App();
-        app.setAndroid(true);
-        app.setName("Budget Pinoy");
-        app.setPackageName("com.sweldongpinoy.budget");
-        app.setLink("https://play.google.com/store/apps/details?id=com.sweldongpinoy.budget");
-        app.setIcon(R.drawable.ic_app_budget_pinoy);
-        app.setInstalled(isAndroidAppInstalled(context, app));
-        androidApps.add(app);
 
         app = new App();
         app.setAndroid(true);
@@ -195,6 +127,7 @@ public class AppUtils {
                 app.setIcon(getDrawableById(context, appObject.optString("icon")));
                 app.setLink(appObject.optString("link"));
                 app.setAndroid(appObject.optBoolean("isAndroid"));
+                app.setPackageName(appObject.optString("packageName"));
                 appList.add(app);
             }
         }
