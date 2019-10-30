@@ -1,6 +1,5 @@
 package com.tigcal.apps;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -81,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_about:
-                final Dialog aboutDialog = new AboutDialog(this);
-                aboutDialog.show();
+                AboutDialog aboutDialog = AboutDialog.newInstance();
+                aboutDialog.show(getSupportFragmentManager(),getString(R.string.about_header));
                 return true;
             case R.id.menu_feedback:
                 sendFeedback();
