@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,12 +52,15 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.action_android:
                             displayAndroidApps();
+                            MenuItemCompat.setContentDescription(item, getString(R.string.apps_android));
                             return true;
                         case R.id.action_assistant:
                             displayAssistantApps();
+                            MenuItemCompat.setContentDescription(item, getString(R.string.apps_assistant));
                             return true;
                         case R.id.action_chrome:
                             displayChromeApps();
+                            MenuItemCompat.setContentDescription(item, getString(R.string.apps_chrome));
                             return true;
                     }
 

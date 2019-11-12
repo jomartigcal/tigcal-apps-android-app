@@ -65,11 +65,14 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> {
             }
         });
 
+        String action;
         if (app.isInstalled()) {
-            holder.actionButton.setText(context.getString(R.string.button_open));
+            action = context.getString(R.string.button_open);
         } else {
-            holder.actionButton.setText(context.getString(R.string.button_download));
+            action = context.getString(R.string.button_download);
         }
+        holder.actionButton.setText(action);
+        holder.actionButton.setContentDescription(action + " " + app.getName());
     }
 
     @Override

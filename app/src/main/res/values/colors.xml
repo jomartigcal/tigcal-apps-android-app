@@ -4,10 +4,7 @@
     <color name="colorPrimaryDark">#689F38</color>
     <color name="colorPrimaryLight">#DCEDC8</color>
     <color name="colorAccent">#448AFF</color>
-    <color name="colorPrimaryText">#212121</color>
-    <color name="colorSecondaryText">#757575</color>
-    <color name="colorIcons">#212121</color>
-    <color name="colorDivider">#BDBDBD</color>
 
+    <color name="colorPrimaryText">#212121</color>
     <color name="colorLauncherBackground">#8BC34A</color>
 </resources>
