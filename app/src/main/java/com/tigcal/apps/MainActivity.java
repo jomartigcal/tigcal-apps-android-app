@@ -91,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
                 AboutDialog aboutDialog = AboutDialog.newInstance();
                 aboutDialog.show(getSupportFragmentManager(),getString(R.string.about_header));
                 return true;
+            case R.id.menu_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.menu_feedback:
                 sendFeedback();
                 return true;

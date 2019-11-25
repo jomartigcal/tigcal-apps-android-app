@@ -20,4 +20,6 @@
 
     <string name="send_feedback_header">Send Feedback</string>
     <string name="send_feedback_subject">Feedback: %s Android App</string>
+
+    <string name="settings_header">Settings</string>
 </resources>
