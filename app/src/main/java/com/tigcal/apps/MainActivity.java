@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayAndroidApps() {
-        List<App> androidApps = AppUtils.getAndroidApps(this);
+        List<App> androidApps = AppUtils.INSTANCE.getAndroidApps(this);
 
         AppAdapter appAdapter = new AppAdapter(this, androidApps, new AppAdapter.OnClickListener() {
             @Override
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayAssistantApps() {
-        AppAdapter appAdapter = new AppAdapter(this, AppUtils.getAssistantApps(this), new AppAdapter.OnClickListener() {
+        AppAdapter appAdapter = new AppAdapter(this, AppUtils.INSTANCE.getAssistantApps(this), new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getLink())));
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayChromeApps() {
-        AppAdapter appAdapter = new AppAdapter(this, AppUtils.getChromeApps(this), new AppAdapter.OnClickListener() {
+        AppAdapter appAdapter = new AppAdapter(this, AppUtils.INSTANCE.getChromeApps(this), new AppAdapter.OnClickListener() {
             @Override
             public void onClick(App app) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(app.getLink())));
