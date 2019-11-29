@@ -7,7 +7,7 @@
             app:dialogTitle="@string/settings_theme_choose"
             app:entries="@array/theme_entries"
             app:entryValues="@array/theme_values"
-            app:key="theme_preference"
+            app:key="@string/settings_theme_preference"
             app:title="@string/settings_theme"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>

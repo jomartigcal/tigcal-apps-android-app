@@ -1,9 +1,11 @@
-package com.tigcal.apps
+package com.tigcal.apps.util
 
 import android.content.Context
 import android.content.pm.PackageManager
 import android.util.Log
 import androidx.annotation.DrawableRes
+import com.tigcal.apps.App
+import com.tigcal.apps.R
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -99,12 +101,11 @@ object AppUtils {
             val buffer = ByteArray(inputStream.available())
             inputStream.read(buffer)
             inputStream.close()
-            return String(buffer,  Charsets.UTF_8)
+            return String(buffer, Charsets.UTF_8)
         } catch (e: IOException) {
             Log.e(TAG, "IOException in getAppsJson: " + e.localizedMessage)
             return ""
         }
-
     }
 
     private fun parseApps(context: Context, appsJsonArray: JSONArray): ArrayList<App> {

@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.tigcal.apps.util.AppUtils;
 import com.tigcal.apps.views.AboutDialog;
 
 import java.util.List;

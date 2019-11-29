@@ -2,7 +2,10 @@ package com.tigcal.apps
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.ListPreference
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.tigcal.apps.util.ThemeHelper
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -21,6 +24,13 @@ class SettingsActivity : AppCompatActivity() {
     class SettingsFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.preferences, rootKey)
+
+            findPreference<ListPreference>(getString(R.string.settings_theme_preference))
+                    ?.onPreferenceChangeListener = Preference.OnPreferenceChangeListener {
+                _, newValue ->
+                ThemeHelper.applyTheme(newValue as String)
+                true
+            }
         }
     }
 }
