@@ -37,9 +37,7 @@ class AppAdapter internal constructor(private val context: Context, private val 
 
         holder.actionButton.visibility = View.VISIBLE
         holder.actionButton.setOnClickListener {
-            if (buttonClickListener != null) {
-                buttonClickListener!!.onButtonClick(app)
-            }
+            buttonClickListener?.onButtonClick(app)
         }
 
         val action = if (app.isInstalled) {

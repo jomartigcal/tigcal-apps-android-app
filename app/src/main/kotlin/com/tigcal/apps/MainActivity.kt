@@ -39,29 +39,29 @@ class MainActivity : AppCompatActivity() {
         }
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        if (bottomNavigationView != null) {
-            bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
-                when (item.itemId) {
-                    R.id.action_android -> {
-                        displayAndroidApps()
-                        MenuItemCompat.setContentDescription(item, getString(R.string.apps_android))
-                        return@OnNavigationItemSelectedListener true
-                    }
-                    R.id.action_assistant -> {
-                        displayAssistantApps()
-                        MenuItemCompat.setContentDescription(item, getString(R.string.apps_assistant))
-                        return@OnNavigationItemSelectedListener true
-                    }
-                    R.id.action_chrome -> {
-                        displayChromeApps()
-                        MenuItemCompat.setContentDescription(item, getString(R.string.apps_chrome))
-                        return@OnNavigationItemSelectedListener true
-                    }
+
+        bottomNavigationView?.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.action_android -> {
+                    displayAndroidApps()
+                    MenuItemCompat.setContentDescription(item, getString(R.string.apps_android))
+                    return@OnNavigationItemSelectedListener true
                 }
-                false
-            })
-            bottomNavigationView.selectedItemId = R.id.action_android
-        }
+                R.id.action_assistant -> {
+                    displayAssistantApps()
+                    MenuItemCompat.setContentDescription(item, getString(R.string.apps_assistant))
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.action_chrome -> {
+                    displayChromeApps()
+                    MenuItemCompat.setContentDescription(item, getString(R.string.apps_chrome))
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+            false
+        })
+        bottomNavigationView.selectedItemId = R.id.action_android
+
         if (isDisplayWide) {
             displayAndroidApps()
             displayAssistantApps()
@@ -190,6 +190,7 @@ class MainActivity : AppCompatActivity() {
                 .append(" (")
                 .append(Build.PRODUCT)
                 .append(")")
+
         val intent = Intent(Intent.ACTION_SENDTO)
         intent.data = Uri.parse("mailto:info@sweldongpinoy.com")
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.send_feedback_subject, getString(R.string.app_name)))

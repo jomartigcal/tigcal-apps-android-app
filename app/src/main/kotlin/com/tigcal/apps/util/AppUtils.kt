@@ -10,19 +10,12 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
-import java.util.*
 
 object AppUtils {
     private val TAG = AppUtils::class.java.simpleName
 
-    private val appComparator = AppComparator()
-
     fun getAndroidApps(context: Context): List<App> {
         val androidApps = getApps(context, "android.json")
-
-        for (app in androidApps) {
-            app.isInstalled = isAndroidAppInstalled(context, app)
-        }
 
         var app = App()
         app.isAndroid = true
@@ -60,51 +53,33 @@ object AppUtils {
             androidApps.add(app)
         }
 
-        Collections.sort(androidApps, appComparator)
-
-        return androidApps
+        return androidApps.map { it.copy(isInstalled = isAndroidAppInstalled(context, it)) }.sortedBy { it.name }
     }
 
-    fun getAssistantApps(context: Context): List<App> {
-        val assistantApps = getApps(context, "assistant.json")
+    fun getAssistantApps(context: Context) = getApps(context, "assistant.json").sortedBy { it.name }
 
-        Collections.sort(assistantApps, appComparator)
-
-        return assistantApps
-    }
-
-    fun getChromeApps(context: Context): List<App> {
-        val chromeApps = getApps(context, "chrome.json")
-
-        Collections.sort(chromeApps, appComparator)
-
-        return chromeApps
-    }
+    fun getChromeApps(context: Context) = getApps(context, "chrome.json").sortedBy { it.name }
 
     private fun getApps(context: Context, jsonFile: String): ArrayList<App> {
-        var apps = ArrayList<App>()
-
-        val appsJson = getAppsJson(context, jsonFile)
-        try {
-            val parentObject = JSONObject(appsJson)
-            apps = parseApps(context, parentObject.optJSONArray("apps"))
+        return try {
+            val parentObject = JSONObject(getAppsJson(context, jsonFile))
+            parseApps(context, parentObject.optJSONArray("apps"))
         } catch (e: JSONException) {
             Log.e(TAG, "JSONException in getApps: " + e.localizedMessage)
+            ArrayList()
         }
-
-        return apps
     }
 
     private fun getAppsJson(context: Context, jsonFile: String): String {
-        try {
+        return try {
             val inputStream = context.assets.open(jsonFile)
             val buffer = ByteArray(inputStream.available())
             inputStream.read(buffer)
             inputStream.close()
-            return String(buffer, Charsets.UTF_8)
+            String(buffer, Charsets.UTF_8)
         } catch (e: IOException) {
             Log.e(TAG, "IOException in getAppsJson: " + e.localizedMessage)
-            return ""
+            ""
         }
     }
 
@@ -127,11 +102,11 @@ object AppUtils {
     }
 
     private fun isAndroidAppInstalled(context: Context, androidApp: App): Boolean {
-        try {
+        return try {
             context.packageManager.getPackageInfo(androidApp.packageName, 0)
-            return true
+            true
         } catch (e: PackageManager.NameNotFoundException) {
-            return false
+            false
         }
 
     }
@@ -139,12 +114,5 @@ object AppUtils {
     @DrawableRes
     private fun getDrawableById(context: Context, drawableId: String): Int {
         return context.resources.getIdentifier(drawableId, "drawable", context.packageName)
-    }
-
-    private class AppComparator : Comparator<App> {
-
-        override fun compare(app1: App, app2: App): Int {
-            return app1.name!!.compareTo(app2.name!!)
-        }
     }
 }
