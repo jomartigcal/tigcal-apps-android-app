@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
 
-    <item android:drawable="?attr/colorOnPrimary" />
+    <item android:drawable="@color/colorOnPrimary" />
 
     <item>
         <bitmap

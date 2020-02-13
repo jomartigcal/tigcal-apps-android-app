@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#5A9216</color>
     <color name="colorPrimaryLight">#BEF67a</color>
     <color name="colorAccent">#1976D2</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
 
     <color name="colorPrimaryText">#212121</color>
     <color name="colorLauncherBackground">#8BC34A</color>
