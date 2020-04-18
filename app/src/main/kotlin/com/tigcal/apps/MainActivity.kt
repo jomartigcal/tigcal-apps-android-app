@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         if (appsRecyclerView == null) {
             isDisplayWide = true
         } else {
-            appsRecyclerView!!.setHasFixedSize(true)
-            appsRecyclerView!!.layoutManager = LinearLayoutManager(this)
+            appsRecyclerView?.setHasFixedSize(true)
+            appsRecyclerView?.layoutManager = LinearLayoutManager(this)
         }
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
             androidRecyclerView.adapter = appAdapter
         } else {
             title = getString(R.string.menu_android)
-            appsRecyclerView!!.adapter = appAdapter
+            appsRecyclerView?.adapter = appAdapter
         }
 
         appAdapter.setButtonClickListener(object : OnButtonClickListener {
@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
             assistantRecyclerView.adapter = appAdapter
         } else {
             title = getString(R.string.menu_assistant)
-            appsRecyclerView!!.adapter = appAdapter
+            appsRecyclerView?.adapter = appAdapter
         }
     }
 
@@ -162,7 +162,7 @@ class MainActivity : AppCompatActivity() {
             chromeRecyclerView.adapter = appAdapter
         } else {
             title = getString(R.string.menu_chrome)
-            appsRecyclerView!!.adapter = appAdapter
+            appsRecyclerView?.adapter = appAdapter
         }
     }
 

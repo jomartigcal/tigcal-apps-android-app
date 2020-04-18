@@ -20,7 +20,7 @@ class AboutDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dialog!!.setTitle(context!!.getString(R.string.about_header))
+        dialog?.setTitle(context?.getString(R.string.about_header))
 
         val appVersionBuilder = StringBuilder()
         appVersionBuilder.append("\n")
