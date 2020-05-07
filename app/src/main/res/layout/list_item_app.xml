@@ -33,7 +33,7 @@
         android:textColor="?android:textColorPrimary"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/app_url_text"
-        app:layout_constraintEnd_toStartOf="@+id/app_button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/app_icon"
         app:layout_constraintTop_toTopOf="parent"
@@ -56,20 +56,4 @@
         app:layout_constraintTop_toBottomOf="@+id/app_name_text"
         tools:text="App URL" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/app_button"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:text="@string/button_open"
-        app:backgroundTint="@color/colorPrimary"
-        android:textColor="@color/colorPrimaryText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/button_download" />
 </androidx.constraintlayout.widget.ConstraintLayout>

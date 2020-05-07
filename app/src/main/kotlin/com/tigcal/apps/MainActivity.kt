@@ -14,8 +14,6 @@ import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
-import com.tigcal.apps.AppAdapter.OnButtonClickListener
 import com.tigcal.apps.util.AppUtils
 import com.tigcal.apps.views.AboutDialog
 
@@ -112,22 +110,6 @@ class MainActivity : AppCompatActivity() {
             title = getString(R.string.menu_android)
             appsRecyclerView?.adapter = appAdapter
         }
-
-        appAdapter.setButtonClickListener(object : OnButtonClickListener {
-            override fun onButtonClick(app: App) {
-                if (!app.isInstalled) {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
-                    return
-                }
-                val intent = packageManager.getLaunchIntentForPackage(app.packageName)
-                if (intent != null) {
-                    startActivity(intent)
-                } else {
-                    Snackbar.make(if (isDisplayWide) androidRecyclerView else appsRecyclerView!!, getString(R.string.app_cannot_open), Snackbar.LENGTH_SHORT).show()
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
-                }
-            }
-        })
     }
 
     private fun displayAssistantApps() {
