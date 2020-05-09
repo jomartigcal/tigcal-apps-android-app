@@ -11,6 +11,7 @@
 
     <string name="button_download">Install</string>
     <string name="button_open">Open</string>
+    <string name="action_share">Share</string>
 
     <string name="app_cannot_open">Unable to open the app</string>
 
