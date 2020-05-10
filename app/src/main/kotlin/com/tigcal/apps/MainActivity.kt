@@ -100,6 +100,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
             }
         })
+        appAdapter.shareListener = { app -> shareApp(app)}
 
         val androidRecyclerView = findViewById<RecyclerView>(R.id.android_recycler_view)
         if (isDisplayWide) {
@@ -118,6 +119,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
             }
         })
+        appAdapter.shareListener = { app -> shareApp(app) }
 
         if (isDisplayWide) {
             val assistantRecyclerView = findViewById<RecyclerView>(R.id.assistant_recycler_view)
@@ -136,6 +138,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
             }
         })
+        appAdapter.shareListener = { app -> shareApp(app) }
 
         if (isDisplayWide) {
             val chromeRecyclerView = findViewById<RecyclerView>(R.id.chrome_recycler_view)
@@ -146,6 +149,17 @@ class MainActivity : AppCompatActivity() {
             title = getString(R.string.menu_chrome)
             appsRecyclerView?.adapter = appAdapter
         }
+    }
+
+    private fun shareApp(app: App) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, app.name + ": " + app.link)
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 
     private fun sendFeedback() {
