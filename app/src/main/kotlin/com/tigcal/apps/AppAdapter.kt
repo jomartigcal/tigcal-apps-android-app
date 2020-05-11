@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AppAdapter internal constructor(private val context: Context, private val apps: List<App>, private val clickListener: OnClickListener) : RecyclerView.Adapter<AppAdapter.AppViewHolder>() {
+class AppAdapter internal constructor(private val context: Context, private val apps: List<App>, private val onClick: (App) -> Unit) : RecyclerView.Adapter<AppAdapter.AppViewHolder>() {
     var shareListener: ((App) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppViewHolder {
@@ -22,7 +22,7 @@ class AppAdapter internal constructor(private val context: Context, private val 
         holder.nameText.text = app.name
         holder.urlText.text = app.link
 
-        holder.itemView.setOnClickListener { clickListener.onClick(app) }
+        holder.itemView.setOnClickListener { onClick(app) }
 
         if (app.icon != 0) {
             holder.appIcon.setImageResource(app.icon)
@@ -43,9 +43,4 @@ class AppAdapter internal constructor(private val context: Context, private val 
         var shareImage: ImageView = itemView.findViewById(R.id.share_image)
 
     }
-
-    interface OnClickListener {
-        fun onClick(app: App)
-    }
-
 }

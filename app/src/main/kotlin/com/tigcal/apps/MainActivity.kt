@@ -95,11 +95,7 @@ class MainActivity : AppCompatActivity() {
     private fun displayAndroidApps() {
         val androidApps = AppUtils.getAndroidApps(this)
 
-        val appAdapter = AppAdapter(this, androidApps, object : AppAdapter.OnClickListener {
-            override fun onClick(app: App) {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
-            }
-        })
+        val appAdapter = AppAdapter(this, androidApps) {app -> openAppLink(app) }
         appAdapter.shareListener = { app -> shareApp(app)}
 
         val androidRecyclerView = findViewById<RecyclerView>(R.id.android_recycler_view)
@@ -114,11 +110,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayAssistantApps() {
-        val appAdapter = AppAdapter(this, AppUtils.getAssistantApps(this), object : AppAdapter.OnClickListener {
-            override fun onClick(app: App) {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
-            }
-        })
+        val appAdapter = AppAdapter(this, AppUtils.getAssistantApps(this)) {
+            app -> openAppLink(app)
+        }
         appAdapter.shareListener = { app -> shareApp(app) }
 
         if (isDisplayWide) {
@@ -133,11 +127,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayChromeApps() {
-        val appAdapter = AppAdapter(this, AppUtils.getChromeApps(this), object : AppAdapter.OnClickListener {
-            override fun onClick(app: App) {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
-            }
-        })
+        val appAdapter = AppAdapter(this, AppUtils.getChromeApps(this)) {
+            app -> openAppLink(app)
+        }
         appAdapter.shareListener = { app -> shareApp(app) }
 
         if (isDisplayWide) {
@@ -149,6 +141,10 @@ class MainActivity : AppCompatActivity() {
             title = getString(R.string.menu_chrome)
             appsRecyclerView?.adapter = appAdapter
         }
+    }
+
+    private fun openAppLink(app: App) {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
     }
 
     private fun shareApp(app: App) {
