@@ -17,48 +17,56 @@ object AppUtils {
     fun getAndroidApps(context: Context): List<App> {
         val androidApps = getApps(context, "android.json")
 
-        var app = App()
-        app.isAndroid = true
-        app.name = "Help Me"
-        app.packageName = "com.tigcal.helpme"
-        app.link = "https://play.google.com/store/apps/details?id=com.tigcal.helpme"
-        app.icon = R.drawable.ic_app_help_me
+        var app = App(
+                isAndroid = true,
+                name = "Help Me",
+                packageName = "com.tigcal.helpme",
+                link = "https://play.google.com/store/apps/details?id=com.tigcal.helpme",
+                icon = R.drawable.ic_app_help_me
+        )
+
         var isInstalled = isAndroidAppInstalled(context, app)
         app.isInstalled = isInstalled
         if (isInstalled) {
             androidApps.add(app)
         }
 
-        app = App()
-        app.isAndroid = true
-        app.name = "Tigcal Utils"
-        app.packageName = "com.tigcal.utils"
-        app.link = "https://play.google.com/apps/testing/com.tigcal.utils"
-        app.icon = R.drawable.ic_app_tigcal_utils
+        app = App(
+                isAndroid = true,
+                name = "Tigcal Utils",
+                packageName = "com.tigcal.utils",
+                link = "https://play.google.com/store/apps/details?id=com.tigcal.utils",
+                icon = R.drawable.ic_app_tigcal_utils
+        )
         isInstalled = isAndroidAppInstalled(context, app)
         app.isInstalled = isInstalled
         if (isInstalled) {
             androidApps.add(app)
         }
 
-        app = App()
-        app.isAndroid = true
-        app.name = "You and Me"
-        app.packageName = "com.tigcal.youandme"
-        app.link = "https://play.google.com/store/apps/details?id=com.tigcal.youandme"
-        app.icon = R.drawable.ic_app_yumi
+        app = App(
+                isAndroid = true,
+                name = "You and Me",
+                packageName = "com.tigcal.youandme",
+                link = "https://play.google.com/store/apps/details?id=com.tigcal.youandme",
+                icon = R.drawable.ic_app_yumi
+        )
+
         isInstalled = isAndroidAppInstalled(context, app)
         app.isInstalled = isInstalled
         if (isInstalled) {
             androidApps.add(app)
         }
 
-        return androidApps.map { it.copy(isInstalled = isAndroidAppInstalled(context, it)) }.sortedBy { it.name }
+        return androidApps.map { it.copy(isInstalled = isAndroidAppInstalled(context, it)) }
+                .sortedBy { it.name }
     }
 
-    fun getAssistantApps(context: Context) = getApps(context, "assistant.json").sortedBy { it.name }
+    fun getAssistantApps(context: Context) = getApps(context, "assistant.json")
+            .sortedBy { it.name }
 
-    fun getChromeApps(context: Context) = getApps(context, "chrome.json").sortedBy { it.name }
+    fun getChromeApps(context: Context) = getApps(context, "chrome.json")
+            .sortedBy { it.name }
 
     private fun getApps(context: Context, jsonFile: String): ArrayList<App> {
         return try {
@@ -108,7 +116,6 @@ object AppUtils {
         } catch (e: PackageManager.NameNotFoundException) {
             false
         }
-
     }
 
     @DrawableRes
