@@ -9,7 +9,7 @@
     <string name="apps_assistant">Assistant Apps</string>
     <string name="apps_chrome">Chrome Apps</string>
 
-    <string name="button_download">Install</string>
+    <string name="action_install">Install</string>
     <string name="button_open">Open</string>
     <string name="action_share">Share</string>
 

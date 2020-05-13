@@ -28,6 +28,7 @@ class AppAdapter internal constructor(private val context: Context, private val 
             holder.appIcon.setImageResource(app.icon)
         }
 
+        holder.installImage.visibility = if (app.isAndroid) View.VISIBLE else View.GONE
         holder.shareImage.setOnClickListener { shareListener?.invoke(app) }
         holder.shareImage.contentDescription = "${context.getString(R.string.action_share)} ${app.name}"
     }
@@ -40,7 +41,7 @@ class AppAdapter internal constructor(private val context: Context, private val 
         var appIcon: ImageView = itemView.findViewById(R.id.app_icon)
         var nameText: TextView = itemView.findViewById(R.id.app_name_text)
         var urlText: TextView = itemView.findViewById(R.id.app_url_text)
+        var installImage: ImageView = itemView.findViewById(R.id.install_image)
         var shareImage: ImageView = itemView.findViewById(R.id.share_image)
-
     }
 }
