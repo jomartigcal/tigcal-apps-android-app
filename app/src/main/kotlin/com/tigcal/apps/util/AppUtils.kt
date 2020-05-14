@@ -96,12 +96,13 @@ object AppUtils {
         for (i in 0 until appsJsonArray.length()) {
             val appObject = appsJsonArray.optJSONObject(i)
             if (appObject != null) {
-                val app = App()
-                app.name = appObject.optString("name")
-                app.icon = getDrawableById(context, appObject.optString("icon"))
-                app.link = appObject.optString("link")
-                app.isAndroid = appObject.optBoolean("isAndroid")
-                app.packageName = appObject.optString("packageName")
+                val app = App(
+                        name = appObject.optString("name"),
+                        icon = getDrawableById(context, appObject.optString("icon")),
+                        link = appObject.optString("link"),
+                        isAndroid = appObject.optBoolean("isAndroid"),
+                        packageName = appObject.optString("packageName")
+                )
                 appList.add(app)
             }
         }
