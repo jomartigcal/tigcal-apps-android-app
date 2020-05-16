@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AppAdapter internal constructor(private val context: Context, private val apps: List<App>, private val onClick: (App) -> Unit) : RecyclerView.Adapter<AppAdapter.AppViewHolder>() {
+    var openOrDownloadListener: ((App) -> Unit)? = null
     var shareListener: ((App) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppViewHolder {
@@ -28,7 +29,20 @@ class AppAdapter internal constructor(private val context: Context, private val 
             holder.appIcon.setImageResource(app.icon)
         }
 
-        holder.openImage.visibility = if (app.isAndroid) View.VISIBLE else View.GONE
+        holder.openOrDownloadImage.visibility = if (app.isAndroid) View.VISIBLE else View.GONE
+        holder.openOrDownloadImage.setOnClickListener { openOrDownloadListener?.invoke(app) }
+        holder.openOrDownloadImage.setImageResource(if (app.isInstalled) {
+            R.drawable.ic_open
+        } else {
+            R.drawable.ic_install
+        })
+        holder.openOrDownloadImage.contentDescription = if (app.isInstalled) {
+            context.getString(R.string.action_open)
+        } else {
+            context.getString(R.string.action_install)
+        }.plus(" ${app.name}")
+
+
         holder.shareImage.setOnClickListener { shareListener?.invoke(app) }
         holder.shareImage.contentDescription = "${context.getString(R.string.action_share)} ${app.name}"
     }
@@ -41,7 +55,7 @@ class AppAdapter internal constructor(private val context: Context, private val 
         var appIcon: ImageView = itemView.findViewById(R.id.app_icon)
         var nameText: TextView = itemView.findViewById(R.id.app_name_text)
         var urlText: TextView = itemView.findViewById(R.id.app_url_text)
-        var openImage: ImageView = itemView.findViewById(R.id.open_image)
+        var openOrDownloadImage: ImageView = itemView.findViewById(R.id.open_install_image)
         var shareImage: ImageView = itemView.findViewById(R.id.share_image)
     }
 }

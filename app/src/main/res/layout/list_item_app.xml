@@ -33,7 +33,7 @@
         android:textColor="?android:textColorPrimary"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/app_url_text"
-        app:layout_constraintEnd_toStartOf="@+id/open_image"
+        app:layout_constraintEnd_toStartOf="@+id/open_install_image"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/app_icon"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +57,7 @@
         tools:text="App URL" />
 
     <ImageView
-        android:id="@+id/open_image"
+        android:id="@+id/open_install_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"

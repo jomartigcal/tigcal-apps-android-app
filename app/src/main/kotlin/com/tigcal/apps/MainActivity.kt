@@ -93,10 +93,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayAndroidApps() {
-        val androidApps = AppUtils.getAndroidApps(this)
-
-        val appAdapter = AppAdapter(this, androidApps) {app -> openAppLink(app) }
-        appAdapter.shareListener = { app -> shareApp(app)}
+        val appAdapter = AppAdapter(this, AppUtils.getAndroidApps(this)) { app ->
+            openAppLink(app) }
+        appAdapter.openOrDownloadListener = { app -> openApp(app) }
+        appAdapter.shareListener = { app -> shareApp(app) }
 
         val androidRecyclerView = findViewById<RecyclerView>(R.id.android_recycler_view)
         if (isDisplayWide) {
@@ -140,6 +140,15 @@ class MainActivity : AppCompatActivity() {
         } else {
             title = getString(R.string.menu_chrome)
             appsRecyclerView?.adapter = appAdapter
+        }
+    }
+
+    private fun openApp(app: App) {
+        val intent = packageManager.getLaunchIntentForPackage(app.packageName)
+        if (app.isInstalled && intent != null) {
+            startActivity(intent)
+        } else {
+            openAppLink(app)
         }
     }
 
