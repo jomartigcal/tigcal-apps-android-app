@@ -94,7 +94,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayAndroidApps() {
         val appAdapter = AppAdapter(this, AppUtils.getAndroidApps(this)) { app ->
-            openAppLink(app) }
+            openAppLink(app)
+        }
         appAdapter.openOrDownloadListener = { app -> openApp(app) }
         appAdapter.shareListener = { app -> shareApp(app) }
 
@@ -110,8 +111,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayAssistantApps() {
-        val appAdapter = AppAdapter(this, AppUtils.getAssistantApps(this)) {
-            app -> openAppLink(app)
+        val appAdapter = AppAdapter(this, AppUtils.getAssistantApps(this)) { app ->
+            openAppLink(app)
         }
         appAdapter.shareListener = { app -> shareApp(app) }
 
@@ -127,8 +128,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayChromeApps() {
-        val appAdapter = AppAdapter(this, AppUtils.getChromeApps(this)) {
-            app -> openAppLink(app)
+        val appAdapter = AppAdapter(this, AppUtils.getChromeApps(this)) { app ->
+            openAppLink(app)
         }
         appAdapter.shareListener = { app -> shareApp(app) }
 
@@ -181,7 +182,7 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(Intent.ACTION_SENDTO)
         intent.data = Uri.parse("mailto:");
-        intent.putExtra(Intent.EXTRA_EMAIL,  arrayOf("jomar@tigcal.com"))
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("jomar@tigcal.com"))
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.send_feedback_subject, getString(R.string.app_name)))
         intent.putExtra(Intent.EXTRA_TEXT, deviceInfo)
         startActivity(Intent.createChooser(intent, getString(R.string.send_feedback_header)))
