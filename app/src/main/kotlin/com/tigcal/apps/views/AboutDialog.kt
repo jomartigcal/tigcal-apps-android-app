@@ -22,26 +22,27 @@ class AboutDialog : DialogFragment() {
 
         dialog?.setTitle(context?.getString(R.string.about_header))
 
-        val appVersionBuilder = StringBuilder()
-        appVersionBuilder.append("\n")
-        appVersionBuilder.append(context?.getString(R.string.app_name))
-        try {
-            appVersionBuilder.append(" ")
-                    .append(context?.packageManager?.getPackageInfo(context?.packageName, 0)?.versionName)
-        } catch (e: PackageManager.NameNotFoundException) {
-            Log.e(DIALOG_TAG, "package name not found")
-        }
-
-        appVersionBuilder.append("\n")
-
-        val appVersion = view.findViewById<TextView>(R.id.version_text)
-        appVersion.text = appVersionBuilder.toString()
+        val appVersion = "\n${context?.getString(R.string.app_name)} ${getAppVersion()}\n"
+        val appVersionTextView = view.findViewById<TextView>(R.id.version_text)
+        appVersionTextView.text = appVersion
 
         val linkMovementMethod = LinkMovementMethod.getInstance()
+
         val descriptionText = view.findViewById<TextView>(R.id.about_text)
         descriptionText.movementMethod = linkMovementMethod
+
         val contactTextView = view.findViewById<TextView>(R.id.contact_info_text)
         contactTextView.movementMethod = linkMovementMethod
+    }
+
+    private fun getAppVersion(): String {
+        return try {
+             context?.packageManager?.getPackageInfo(context?.packageName, 0)?.versionName
+                    ?: ""
+        } catch (e: PackageManager.NameNotFoundException) {
+            Log.e(DIALOG_TAG, "package name not found")
+            ""
+        }
     }
 
     companion object {
