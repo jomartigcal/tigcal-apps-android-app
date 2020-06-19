@@ -5,6 +5,14 @@ Personal applications and projects developed by [Jomar Tigcal](https://www.tigca
 
 ![Feature Graphic](art/feature-graphic.png)
 
----
 
-![App Screenshot](art/screenshot-tablet10.png)
+## Screenshots
+
+### Android
+<img src="art/screenshot-mobile-android.png" width="540" alt="Android" />
+
+### Assistant
+<img src="art/screenshot-mobile-assistant.png" width="540" alt="Assistant" />
+
+### Chrome
+<img src="art/screenshot-mobile-chrome.png" width="540" alt="Chrome" />
