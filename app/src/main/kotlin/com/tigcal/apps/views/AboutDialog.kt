@@ -7,9 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.tigcal.apps.R
+import kotlinx.android.synthetic.main.dialog_about.*
 
 class AboutDialog : DialogFragment() {
 
@@ -23,16 +23,13 @@ class AboutDialog : DialogFragment() {
         dialog?.setTitle(context?.getString(R.string.about_header))
 
         val appVersion = "\n${context?.getString(R.string.app_name)} ${getAppVersion()}\n"
-        val appVersionTextView = view.findViewById<TextView>(R.id.version_text)
-        appVersionTextView.text = appVersion
+        version_text.text = appVersion
 
         val linkMovementMethod = LinkMovementMethod.getInstance()
 
-        val descriptionText = view.findViewById<TextView>(R.id.about_text)
-        descriptionText.movementMethod = linkMovementMethod
+        about_text.movementMethod = linkMovementMethod
 
-        val contactTextView = view.findViewById<TextView>(R.id.contact_info_text)
-        contactTextView.movementMethod = linkMovementMethod
+        contact_info_text.movementMethod = linkMovementMethod
     }
 
     private fun getAppVersion(): String {
