@@ -4,18 +4,21 @@
     {
       "name": "Android Gradle Extension",
       "icon": "ic_app_age",
+      "description": "Android Gradle Extension is a Chrome extension that adds the Gradle dependency to use for Android API class reference pages.",
       "link": "https://chrome.google.com/webstore/detail/android-gradle-extension/fhpkfgflphcjlacgolciajdkfodapmcn",
       "isAndroid": false
     },
     {
       "name": "GDG Philippines",
       "icon": "ic_app_gdg",
+      "description": "See the latest events and get links to GDG Philippines straight from your Google Chrome browser with the GDG Philippines Chrome Extension.",
       "link": "https://chrome.google.com/webstore/detail/gdg-philippines/pbpopomlbomjpbmpfigaogeodiemmjbm",
       "isAndroid": false
     },
     {
       "name": "Pinoy Jokes",
       "icon": "ic_app_pinoy_jokes",
+      "description": "Need a good laugh? Enjoy Pinoy Jokes right from your browser with the Pinoy Jokes Chrome Extension.",
       "link": "https://chrome.google.com/webstore/detail/pinoy-jokes-chrome-extens/olpaccmgjefjnmojjmhkobjgmofpogai",
       "isAndroid": false
     }

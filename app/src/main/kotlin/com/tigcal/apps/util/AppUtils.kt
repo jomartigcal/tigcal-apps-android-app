@@ -20,6 +20,7 @@ object AppUtils {
         var app = App(
                 isAndroid = true,
                 name = "Help Me",
+                description = "",
                 packageName = "com.tigcal.helpme",
                 link = "https://play.google.com/store/apps/details?id=com.tigcal.helpme",
                 icon = R.drawable.ic_app_help_me
@@ -33,7 +34,8 @@ object AppUtils {
 
         app = App(
                 isAndroid = true,
-                name = "Tigcal Utils",
+                name = "Tigcal Utilities",
+                description = "Tigcal Utilities is a collection of utility mini-apps, which includes includes Battery and Flashlight.",
                 packageName = "com.tigcal.utils",
                 link = "https://play.google.com/store/apps/details?id=com.tigcal.utils",
                 icon = R.drawable.ic_app_tigcal_utils
@@ -47,6 +49,7 @@ object AppUtils {
         app = App(
                 isAndroid = true,
                 name = "You and Me",
+                description = "You and Me is the app for you and your special someone. You can use the app to check your photos with your special someone.",
                 packageName = "com.tigcal.youandme",
                 link = "https://play.google.com/store/apps/details?id=com.tigcal.youandme",
                 icon = R.drawable.ic_app_yumi

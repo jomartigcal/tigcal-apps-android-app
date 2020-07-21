@@ -4,12 +4,14 @@
     {
       "name": "Budget Penny",
       "icon": "ic_app_budget_penny",
+      "description": "Budget Penny is your budget assistant that's ready to help in managing your finances. Simply tell her your monthly budget and update her of your expenses as often as you like. Moreover, you can ask her how much is your remaining balance or whether you still have budget.",
       "link": "https://assistant.google.com/services/a/id/386ffed76114e24f",
       "isAndroid": false
     },
     {
       "name": "GDG Philippines",
       "icon": "ic_app_gdg_old",
+      "description": "Official Google Assistant App for the Google Developers Group (GDG) Philippines community. You can ask it about the upcoming events and more information about GDG Philippines.",
       "link": "https://assistant.google.com/services/a/id/631a617c588e09c9",
       "isAndroid": false
     }
