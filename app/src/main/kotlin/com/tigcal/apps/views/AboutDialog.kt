@@ -7,9 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.tigcal.apps.R
-import kotlinx.android.synthetic.main.dialog_about.*
 
 class AboutDialog : DialogFragment() {
 
@@ -23,18 +23,19 @@ class AboutDialog : DialogFragment() {
         dialog?.setTitle(context?.getString(R.string.about_header))
 
         val appVersion = "\n${context?.getString(R.string.app_name)} ${getAppVersion()}\n"
-        version_text.text = appVersion
+        val versionText: TextView = view.findViewById(R.id.version_text)
+        versionText.text = appVersion
 
         val linkMovementMethod = LinkMovementMethod.getInstance()
-
-        about_text.movementMethod = linkMovementMethod
-
-        contact_info_text.movementMethod = linkMovementMethod
+        val developerText: TextView = view.findViewById(R.id.about_text)
+        developerText.movementMethod = linkMovementMethod
+        val contactText: TextView = view.findViewById(R.id.contact_info_text)
+        contactText.movementMethod = linkMovementMethod
     }
 
     private fun getAppVersion(): String {
         return try {
-             context?.packageManager?.getPackageInfo(context?.packageName, 0)?.versionName
+            context?.packageManager?.getPackageInfo(context?.packageName ?: "", 0)?.versionName
                     ?: ""
         } catch (e: PackageManager.NameNotFoundException) {
             Log.e(DIALOG_TAG, "package name not found")
@@ -45,7 +46,6 @@ class AboutDialog : DialogFragment() {
     companion object {
         private val DIALOG_TAG = AboutDialog::class.java.simpleName
 
-        @JvmStatic
         fun newInstance(): AboutDialog {
             return AboutDialog()
         }
