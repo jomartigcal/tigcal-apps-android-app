@@ -9,32 +9,43 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tigcal.apps.util.AppUtils
 import com.tigcal.apps.views.AboutDialog
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
-import kotlinx.android.synthetic.main.content_main_wide.*
 
 class MainActivity : AppCompatActivity() {
     private var isDisplayWide = false
+
+    private var appsRecyclerView: RecyclerView? = null
+    private var androidRecyclerView: RecyclerView? = null
+    private var assistantRecyclerView: RecyclerView? = null
+    private var chromeRecyclerView: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        if (apps_recycler_view == null) {
-            isDisplayWide = true
-        } else {
-            apps_recycler_view.setHasFixedSize(true)
-            apps_recycler_view.layoutManager = LinearLayoutManager(this)
+        androidRecyclerView = findViewById(R.id.android_recycler_view)
+        appsRecyclerView = findViewById(R.id.apps_recycler_view)
+        assistantRecyclerView = findViewById(R.id.assistant_recycler_view)
+        chromeRecyclerView = findViewById(R.id.chrome_recycler_view)
+
+        isDisplayWide = appsRecyclerView == null
+
+        appsRecyclerView?.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@MainActivity)
         }
 
-        bottom_navigation?.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        val bottomNavigationView: BottomNavigationView? = findViewById(R.id.bottom_navigation)
+        bottomNavigationView?.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.action_android -> {
                     displayAndroidApps()
@@ -54,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             }
             false
         })
-        bottom_navigation?.selectedItemId = R.id.action_android
+        bottomNavigationView?.selectedItemId = R.id.action_android
 
         if (isDisplayWide) {
             displayAndroidApps()
@@ -96,12 +107,14 @@ class MainActivity : AppCompatActivity() {
         appAdapter.shareListener = { app -> shareApp(app) }
 
         if (isDisplayWide) {
-            android_recycler_view.setHasFixedSize(true)
-            android_recycler_view.layoutManager = LinearLayoutManager(this)
-            android_recycler_view.adapter = appAdapter
+            androidRecyclerView?.apply {
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(this@MainActivity)
+                adapter = appAdapter
+            }
         } else {
             title = getString(R.string.menu_android)
-            apps_recycler_view?.adapter = appAdapter
+            appsRecyclerView?.adapter = appAdapter
         }
     }
 
@@ -112,12 +125,14 @@ class MainActivity : AppCompatActivity() {
         appAdapter.shareListener = { app -> shareApp(app) }
 
         if (isDisplayWide) {
-            assistant_recycler_view.setHasFixedSize(true)
-            assistant_recycler_view.layoutManager = LinearLayoutManager(this)
-            assistant_recycler_view.adapter = appAdapter
+            assistantRecyclerView?.apply {
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(this@MainActivity)
+                adapter = appAdapter
+            }
         } else {
             title = getString(R.string.menu_assistant)
-            apps_recycler_view.adapter = appAdapter
+            appsRecyclerView?.adapter = appAdapter
         }
     }
 
@@ -128,12 +143,14 @@ class MainActivity : AppCompatActivity() {
         appAdapter.shareListener = { app -> shareApp(app) }
 
         if (isDisplayWide) {
-            chrome_recycler_view.setHasFixedSize(true)
-            chrome_recycler_view.layoutManager = LinearLayoutManager(this)
-            chrome_recycler_view.adapter = appAdapter
+            chromeRecyclerView?.apply {
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(this@MainActivity)
+                adapter = appAdapter
+            }
         } else {
             title = getString(R.string.menu_chrome)
-            apps_recycler_view.adapter = appAdapter
+            appsRecyclerView?.adapter = appAdapter
         }
     }
 
