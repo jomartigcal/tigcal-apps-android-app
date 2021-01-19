@@ -11,11 +11,13 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.MenuItemCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tigcal.apps.util.AppUtils
 import com.tigcal.apps.views.AboutDialog
+
 
 class MainActivity : AppCompatActivity() {
     private var isDisplayWide = false
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         appsRecyclerView?.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@MainActivity)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
 
         val bottomNavigationView: BottomNavigationView? = findViewById(R.id.bottom_navigation)
@@ -110,6 +113,7 @@ class MainActivity : AppCompatActivity() {
             androidRecyclerView?.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@MainActivity)
+                addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
                 adapter = appAdapter
             }
         } else {
@@ -128,6 +132,7 @@ class MainActivity : AppCompatActivity() {
             assistantRecyclerView?.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@MainActivity)
+                addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
                 adapter = appAdapter
             }
         } else {
@@ -146,6 +151,7 @@ class MainActivity : AppCompatActivity() {
             chromeRecyclerView?.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@MainActivity)
+                addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
                 adapter = appAdapter
             }
         } else {
