@@ -1,10 +1,10 @@
 package com.tigcal.apps
 
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import androidx.preference.PreferenceManager
 import com.tigcal.apps.util.ThemeHelper
 
-class TigcalApplication : Application() {
+class TigcalApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
