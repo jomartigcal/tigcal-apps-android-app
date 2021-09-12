@@ -94,7 +94,9 @@ object AppUtils {
         }
     }
 
-    private fun parseApps(context: Context, appsJsonArray: JSONArray): ArrayList<App> {
+    private fun parseApps(context: Context, appsJsonArray: JSONArray?): ArrayList<App> {
+        appsJsonArray ?: return arrayListOf()
+
         val appList = ArrayList<App>()
         for (i in 0 until appsJsonArray.length()) {
             val appObject = appsJsonArray.optJSONObject(i)
