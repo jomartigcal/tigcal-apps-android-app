@@ -15,6 +15,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.tigcal.apps.util.AppUtils
 import com.tigcal.apps.views.AboutDialog
 
@@ -182,6 +185,8 @@ class MainActivity : AppCompatActivity() {
 
         val shareIntent = Intent.createChooser(sendIntent, null)
         startActivity(shareIntent)
+
+        Firebase.analytics.logEvent(FirebaseAnalytics.Event.SHARE, null)
     }
 
     private fun sendFeedback() {
