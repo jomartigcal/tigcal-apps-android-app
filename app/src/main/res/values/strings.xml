@@ -15,7 +15,7 @@
 
     <string name="about_header">About</string>
     <string name="about_description">Tigcal Apps and Projects \n\nPersonal Applications developed by <a href="https://jomar.tigcal.com">Jomar Tigcal</a>\n\n</string>
-    <string name="about_contact_info">For comments or suggestions, send an email at <a href="mailto:jomar@tigcal.com">jomar@tigcal.com</a>.\n\n</string>
+    <string name="about_contact_info">For comments or suggestions, send an email at <a href="mailto:dev@tigcal.com">dev@tigcal.com</a>.\n\n</string>
 
     <string name="send_feedback_header">Send Feedback</string>
     <string name="send_feedback_subject">Feedback: %s Android App</string>
