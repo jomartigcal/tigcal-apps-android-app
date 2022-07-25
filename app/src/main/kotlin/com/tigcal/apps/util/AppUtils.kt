@@ -68,7 +68,7 @@ object AppUtils {
     fun getAssistantApps(context: Context) = getApps(context, "assistant.json")
             .sortedBy { it.name }
 
-    fun getChromeApps(context: Context) = getApps(context, "chrome.json")
+    fun getWebApps(context: Context) = getApps(context, "web.json")
             .sortedBy { it.name }
 
     private fun getApps(context: Context, jsonFile: String): ArrayList<App> {

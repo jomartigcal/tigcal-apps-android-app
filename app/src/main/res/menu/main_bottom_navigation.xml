@@ -11,8 +11,8 @@
         android:icon="@drawable/ic_assistant"
         android:title="@string/menu_assistant" />
     <item
-        android:id="@+id/action_chrome"
+        android:id="@+id/action_web"
         android:enabled="true"
-        android:icon="@drawable/ic_chrome"
-        android:title="@string/menu_chrome" />
+        android:icon="@drawable/ic_web"
+        android:title="@string/menu_web" />
 </menu>

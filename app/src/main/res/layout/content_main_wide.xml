@@ -79,11 +79,11 @@
         tools:listitem="@layout/list_item_app" />
 
     <TextView
-        android:id="@+id/chrome_label"
+        android:id="@+id/web_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/menu_chrome"
+        android:text="@string/menu_web"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/assistant_label"
@@ -92,17 +92,17 @@
         app:layout_constraintTop_toTopOf="@+id/horizontal_guideline" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chrome_recycler_view"
+        android:id="@+id/web_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/chrome_label"
-        app:layout_constraintLeft_toLeftOf="@id/chrome_label"
-        app:layout_constraintStart_toStartOf="@+id/chrome_label"
-        app:layout_constraintTop_toBottomOf="@id/chrome_label"
+        app:layout_constraintEnd_toEndOf="@+id/web_label"
+        app:layout_constraintLeft_toLeftOf="@id/web_label"
+        app:layout_constraintStart_toStartOf="@+id/web_label"
+        app:layout_constraintTop_toBottomOf="@id/web_label"
         tools:listitem="@layout/list_item_app" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

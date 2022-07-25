@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private var appsRecyclerView: RecyclerView? = null
     private var androidRecyclerView: RecyclerView? = null
     private var assistantRecyclerView: RecyclerView? = null
-    private var chromeRecyclerView: RecyclerView? = null
+    private var webRecyclerView: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         androidRecyclerView = findViewById(R.id.android_recycler_view)
         appsRecyclerView = findViewById(R.id.apps_recycler_view)
         assistantRecyclerView = findViewById(R.id.assistant_recycler_view)
-        chromeRecyclerView = findViewById(R.id.chrome_recycler_view)
+        webRecyclerView = findViewById(R.id.web_recycler_view)
 
         isDisplayWide = appsRecyclerView == null
 
@@ -63,9 +63,9 @@ class MainActivity : AppCompatActivity() {
                     MenuItemCompat.setContentDescription(item, getString(R.string.apps_assistant))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.action_chrome -> {
-                    displayChromeApps()
-                    MenuItemCompat.setContentDescription(item, getString(R.string.apps_chrome))
+                R.id.action_web -> {
+                    displayWebApps()
+                    MenuItemCompat.setContentDescription(item, getString(R.string.apps_web))
                     return@OnNavigationItemSelectedListener true
                 }
             }
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         if (isDisplayWide) {
             displayAndroidApps()
             displayAssistantApps()
-            displayChromeApps()
+            displayWebApps()
         }
     }
 
@@ -144,21 +144,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun displayChromeApps() {
-        val appAdapter = AppAdapter(this, AppUtils.getChromeApps(this)) { app ->
+    private fun displayWebApps() {
+        val appAdapter = AppAdapter(this, AppUtils.getWebApps(this)) { app ->
             openAppLink(app)
         }
         appAdapter.shareListener = { app -> shareApp(app) }
 
         if (isDisplayWide) {
-            chromeRecyclerView?.apply {
+            webRecyclerView?.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
                 adapter = appAdapter
             }
         } else {
-            title = getString(R.string.menu_chrome)
+            title = getString(R.string.menu_web)
             appsRecyclerView?.adapter = appAdapter
         }
     }

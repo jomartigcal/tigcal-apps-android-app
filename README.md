@@ -14,5 +14,5 @@ Personal applications and projects developed by [Jomar Tigcal](https://www.tigca
 ### Assistant
 <img src="art/screenshot-mobile-assistant.png" width="540" alt="Assistant" />
 
-### Chrome
-<img src="art/screenshot-mobile-chrome.png" width="540" alt="Chrome" />
+### Web
+<img src="art/screenshot-mobile-web.png" width="540" alt="Web" />
