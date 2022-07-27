@@ -9,17 +9,45 @@
       "isAndroid": false
     },
     {
-      "name": "GDG Philippines",
+      "name": "GDG Philippines Chome Extension",
       "icon": "ic_app_gdg",
       "description": "See the latest events and get links to GDG Philippines straight from your Google Chrome browser with the GDG Philippines Chrome Extension.",
       "link": "https://chrome.google.com/webstore/detail/gdg-philippines/pbpopomlbomjpbmpfigaogeodiemmjbm",
       "isAndroid": false
     },
     {
-      "name": "Pinoy Jokes",
+      "name": "Pinoy Jokes Chrome Extension",
       "icon": "ic_app_pinoy_jokes",
       "description": "Need a good laugh? Enjoy Pinoy Jokes right from your browser with the Pinoy Jokes Chrome Extension.",
       "link": "https://chrome.google.com/webstore/detail/pinoy-jokes-chrome-extens/olpaccmgjefjnmojjmhkobjgmofpogai",
+      "isAndroid": false
+    },
+    {
+      "name": "Boto Ko Web App",
+      "icon": "ic_app_boto_ko",
+      "description": "Boto Ko (My Vote) is an Android application for Philippine elections where you can list, update, and share the candidates you want to vote for.",
+      "link": "https://www.botoko.app",
+      "isAndroid": false
+    },
+    {
+      "name": "Budget Pinoy Web App",
+      "icon": "ic_app_budget_pinoy",
+      "description": "Budget Pinoy is a tool for Filipinos in finding out how much their asking salary should be based on their budget.",
+      "link": "https://www.budgetpinoy.com",
+      "isAndroid": false
+    },
+    {
+      "name": "Sweldong Pinoy Web App",
+      "icon": "ic_app_sweldong_pinoy",
+      "description": "Sweldong Pinoy is an Android app for Filipinos that allows them to compute their gross and net pays, withholding taxes, and contributions to SSS/GSIS, Philhealth and PAG-IBIG.",
+      "link": "https://www.sweldongpinoy.com",
+      "isAndroid": false
+    },
+    {
+      "name": "Thirteenth Month Web App",
+      "icon": "ic_app_13th_month",
+      "description": "Thirteenth Month is an Android app for Filipinos in computing their 13th-month pays",
+      "link": "https://13thmonth.sweldongpinoy.com",
       "isAndroid": false
     }
   ]
