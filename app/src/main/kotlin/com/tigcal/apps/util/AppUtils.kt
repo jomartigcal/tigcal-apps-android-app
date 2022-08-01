@@ -65,7 +65,7 @@ object AppUtils {
                 .sortedBy { it.name }
     }
 
-    fun getAssistantApps(context: Context) = getApps(context, "assistant.json")
+    fun getOtherApps(context: Context) = getApps(context, "others.json")
             .sortedBy { it.name }
 
     fun getWebApps(context: Context) = getApps(context, "web.json")

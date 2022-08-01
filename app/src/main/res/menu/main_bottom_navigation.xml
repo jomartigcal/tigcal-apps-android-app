@@ -6,13 +6,13 @@
         android:icon="@drawable/ic_android"
         android:title="@string/menu_android" />
     <item
-        android:id="@+id/action_assistant"
-        android:enabled="true"
-        android:icon="@drawable/ic_assistant"
-        android:title="@string/menu_assistant" />
-    <item
         android:id="@+id/action_web"
         android:enabled="true"
         android:icon="@drawable/ic_web"
         android:title="@string/menu_web" />
+    <item
+        android:id="@+id/action_others"
+        android:enabled="true"
+        android:icon="@drawable/ic_others"
+        android:title="@string/menu_others" />
 </menu>

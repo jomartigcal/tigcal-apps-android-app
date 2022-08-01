@@ -2,12 +2,12 @@
     <string name="app_name">Tigcal Apps</string>
 
     <string name="menu_android">Android</string>
-    <string name="menu_assistant">Assistant</string>
     <string name="menu_web">Web</string>
+    <string name="menu_others">Other</string>
 
     <string name="apps_android">Android Apps</string>
-    <string name="apps_assistant">Assistant Apps</string>
     <string name="apps_web">Web Apps</string>
+    <string name="apps_others">Other Apps</string>
 
     <string name="action_install">Install</string>
     <string name="action_open">Open</string>

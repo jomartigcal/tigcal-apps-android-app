@@ -50,46 +50,19 @@
         tools:listitem="@layout/list_item_app" />
 
     <TextView
-        android:id="@+id/assistant_label"
+        android:id="@+id/web_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:text="@string/menu_assistant"
+        android:text="@string/menu_web"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
         app:layout_constraintTop_toTopOf="@+id/android_label" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/assistant_recycler_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline"
-        app:layout_constraintEnd_toEndOf="@+id/assistant_label"
-        app:layout_constraintLeft_toLeftOf="@id/assistant_label"
-        app:layout_constraintStart_toStartOf="@+id/assistant_label"
-        app:layout_constraintTop_toBottomOf="@id/assistant_label"
-        tools:listitem="@layout/list_item_app" />
-
-    <TextView
-        android:id="@+id/web_label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/menu_web"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/assistant_label"
-        app:layout_constraintLeft_toLeftOf="@id/assistant_label"
-        app:layout_constraintStart_toStartOf="@+id/assistant_label"
-        app:layout_constraintTop_toTopOf="@+id/horizontal_guideline" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/web_recycler_view"
@@ -98,11 +71,38 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline"
         app:layout_constraintEnd_toEndOf="@+id/web_label"
         app:layout_constraintLeft_toLeftOf="@id/web_label"
         app:layout_constraintStart_toStartOf="@+id/web_label"
         app:layout_constraintTop_toBottomOf="@id/web_label"
+        tools:listitem="@layout/list_item_app" />
+
+    <TextView
+        android:id="@+id/others_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/menu_others"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/web_label"
+        app:layout_constraintLeft_toLeftOf="@id/web_label"
+        app:layout_constraintStart_toStartOf="@+id/web_label"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_guideline" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/others_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/others_label"
+        app:layout_constraintLeft_toLeftOf="@id/others_label"
+        app:layout_constraintStart_toStartOf="@+id/others_label"
+        app:layout_constraintTop_toBottomOf="@id/others_label"
         tools:listitem="@layout/list_item_app" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

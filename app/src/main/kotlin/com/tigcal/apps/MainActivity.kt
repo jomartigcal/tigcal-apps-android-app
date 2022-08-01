@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
 
     private var appsRecyclerView: RecyclerView? = null
     private var androidRecyclerView: RecyclerView? = null
-    private var assistantRecyclerView: RecyclerView? = null
     private var webRecyclerView: RecyclerView? = null
+    private var othersRecyclerView: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         androidRecyclerView = findViewById(R.id.android_recycler_view)
         appsRecyclerView = findViewById(R.id.apps_recycler_view)
-        assistantRecyclerView = findViewById(R.id.assistant_recycler_view)
         webRecyclerView = findViewById(R.id.web_recycler_view)
+        othersRecyclerView = findViewById(R.id.others_recycler_view)
 
         isDisplayWide = appsRecyclerView == null
 
@@ -58,14 +58,14 @@ class MainActivity : AppCompatActivity() {
                     MenuItemCompat.setContentDescription(item, getString(R.string.apps_android))
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.action_assistant -> {
-                    displayAssistantApps()
-                    MenuItemCompat.setContentDescription(item, getString(R.string.apps_assistant))
-                    return@OnNavigationItemSelectedListener true
-                }
                 R.id.action_web -> {
                     displayWebApps()
                     MenuItemCompat.setContentDescription(item, getString(R.string.apps_web))
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.action_others -> {
+                    displayAssistantApps()
+                    MenuItemCompat.setContentDescription(item, getString(R.string.apps_others))
                     return@OnNavigationItemSelectedListener true
                 }
             }
@@ -126,20 +126,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayAssistantApps() {
-        val appAdapter = AppAdapter(this, AppUtils.getAssistantApps(this)) { app ->
+        val appAdapter = AppAdapter(this, AppUtils.getOtherApps(this)) { app ->
             openAppLink(app)
         }
         appAdapter.shareListener = { app -> shareApp(app) }
 
         if (isDisplayWide) {
-            assistantRecyclerView?.apply {
+            othersRecyclerView?.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
                 adapter = appAdapter
             }
         } else {
-            title = getString(R.string.menu_assistant)
+            title = getString(R.string.menu_others)
             appsRecyclerView?.adapter = appAdapter
         }
     }
