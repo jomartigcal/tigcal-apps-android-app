@@ -1,6 +1,7 @@
 package com.tigcal.apps.views
 
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.util.Log
@@ -35,8 +36,16 @@ class AboutDialog : DialogFragment() {
 
     private fun getAppVersion(): String {
         return try {
-            context?.packageManager?.getPackageInfo(context?.packageName ?: "", 0)?.versionName
-                    ?: ""
+            context?.let { context ->
+                val packageInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    context.packageManager.getPackageInfo(
+                        context.packageName, PackageManager.PackageInfoFlags.of(0)
+                    )
+                } else {
+                    context.packageManager.getPackageInfo(context.packageName, 0)
+                }
+                packageInfo?.versionName
+            } ?: ""
         } catch (e: PackageManager.NameNotFoundException) {
             Log.e(DIALOG_TAG, "package name not found")
             ""

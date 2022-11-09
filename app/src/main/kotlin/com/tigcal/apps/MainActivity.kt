@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
@@ -51,22 +52,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         val bottomNavigationView: BottomNavigationView? = findViewById(R.id.bottom_navigation)
-        bottomNavigationView?.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        bottomNavigationView?.setOnItemSelectedListener(NavigationBarView.OnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.action_android -> {
                     displayAndroidApps()
                     MenuItemCompat.setContentDescription(item, getString(R.string.apps_android))
-                    return@OnNavigationItemSelectedListener true
+                    return@OnItemSelectedListener true
                 }
                 R.id.action_web -> {
                     displayWebApps()
                     MenuItemCompat.setContentDescription(item, getString(R.string.apps_web))
-                    return@OnNavigationItemSelectedListener true
+                    return@OnItemSelectedListener true
                 }
                 R.id.action_others -> {
                     displayAssistantApps()
                     MenuItemCompat.setContentDescription(item, getString(R.string.apps_others))
-                    return@OnNavigationItemSelectedListener true
+                    return@OnItemSelectedListener true
                 }
             }
             false
@@ -211,11 +212,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun getPackageVersion(): String {
         return try {
-            packageManager.getPackageInfo(packageName, 0).versionName
+            getPackageInfo().versionName
         } catch (e: PackageManager.NameNotFoundException) {
             Log.e(TAG, "package name not found")
             ""
         }
+    }
+
+    private fun getPackageInfo() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        packageManager.getPackageInfo(
+            packageName, PackageManager.PackageInfoFlags.of(0)
+        )
+    } else {
+        packageManager.getPackageInfo(packageName, 0)
     }
 
     companion object {
