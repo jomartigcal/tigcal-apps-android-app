@@ -64,6 +64,14 @@
       "link": "https://play.google.com/store/apps/details?id=com.sweldongpinoy.thirteenthmonth",
       "isAndroid": true,
       "packageName": "com.sweldongpinoy.thirteenthmonth"
+    },
+    {
+      "name": "Toll Pinas",
+      "icon": "ic_app_toll_pinas",
+      "description": "Toll Pinas is an app that you can use to find out the toll fee you need to pay for expressways in the Philippines",
+      "link": "https://play.google.com/store/apps/details?id=com.tigcal.apps.toll",
+      "isAndroid": true,
+      "packageName": "com.tigcal.apps.toll"
     }
   ]
 }
