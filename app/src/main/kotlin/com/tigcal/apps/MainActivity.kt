@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
@@ -174,7 +175,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openAppLink(app: App) {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
+        if (app.link.isNotEmpty()) {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
+        } else {
+            MaterialAlertDialogBuilder(this)
+                .setTitle(app.name)
+                .setMessage(app.description)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }
     }
 
     private fun shareApp(app: App) {

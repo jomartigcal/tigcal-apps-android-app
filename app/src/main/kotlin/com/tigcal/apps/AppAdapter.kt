@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 
 class AppAdapter internal constructor(private val context: Context, private val apps: List<App>, private val onClick: (App) -> Unit) : RecyclerView.Adapter<AppAdapter.AppViewHolder>() {
@@ -21,6 +22,8 @@ class AppAdapter internal constructor(private val context: Context, private val 
         val app = apps[position]
 
         holder.nameText.text = app.name
+        val hasLink = app.link.isNotEmpty()
+        holder.urlText.isVisible = hasLink
         holder.urlText.text = app.link
 
         holder.itemView.setOnClickListener { onClick(app) }
@@ -42,7 +45,7 @@ class AppAdapter internal constructor(private val context: Context, private val 
             context.getString(R.string.action_install)
         }.plus(" ${app.name}")
 
-
+        holder.shareImage.isVisible = hasLink
         holder.shareImage.setOnClickListener { shareListener?.invoke(app) }
         holder.shareImage.contentDescription = "${context.getString(R.string.action_share)} ${app.name}"
     }

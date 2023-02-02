@@ -7,7 +7,7 @@ data class App(
         @DrawableRes
         var icon: Int = 0,
         var description: String = "",
-        var link: String? = null,
+        var link: String = "",
         var packageName: String = "",
         var isAndroid: Boolean = false,
         var isInstalled: Boolean = false

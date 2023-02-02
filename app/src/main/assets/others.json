@@ -9,7 +9,14 @@
       "isAndroid": false
     },
     {
-      "name": "GDG Philippines",
+      "name": "Events Check-in App",
+      "icon": "ic_launch_logo",
+      "description": "A tool for checking in participants to an event based on a registration sheet. The app also includes a raffle page which can draw names from the list of checked in participants. This was originally developed for major events of GDG Philippines but it has been used in others' event as well.",
+      "link": "",
+      "isAndroid": false
+    },
+    {
+      "name": "GDG Philippines Assistant App",
       "icon": "ic_app_gdg_old",
       "description": "Official Google Assistant App for the Google Developers Group (GDG) Philippines community. You can ask it about the upcoming events and more information about GDG Philippines.",
       "link": "https://assistant.google.com/services/a/id/631a617c588e09c9",
