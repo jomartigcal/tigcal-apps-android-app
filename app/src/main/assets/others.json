@@ -16,6 +16,13 @@
       "isAndroid": false
     },
     {
+      "name": "Exchange Gift Generator",
+      "icon": "ic_launch_logo",
+      "description": "A simple exchange gift (Secret Santa) generator built using Google Forms/Spreadsheets and Apps Script.",
+      "link": "",
+      "isAndroid": false
+    },    
+    {
       "name": "GDG Philippines Assistant App",
       "icon": "ic_app_gdg_old",
       "description": "Official Google Assistant App for the Google Developers Group (GDG) Philippines community. You can ask it about the upcoming events and more information about GDG Philippines.",
