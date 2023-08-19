@@ -9,10 +9,10 @@ Personal applications and projects developed by [Jomar Tigcal](https://www.tigca
 ## Screenshots
 
 ### Android
-<img src="art/screenshot-mobile-android.png" width="540" alt="Android" />
+<img src="art/screenshots-phone/android.png" width="540" alt="Android" />
 
 ### Web
-<img src="art/screenshot-mobile-web.png" width="540" alt="Web" />
+<img src="art/screenshots-phone/web.png" width="540" alt="Web" />
 
 ### Others
-<img src="art/screenshot-mobile-assistant.png" width="540" alt="Others" />
+<img src="art/screenshots-phone/other.png" width="540" alt="Others" />
