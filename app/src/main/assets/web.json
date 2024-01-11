@@ -49,6 +49,13 @@
       "description": "Thirteenth Month is an Android app for Filipinos in computing their 13th-month pays",
       "link": "https://13thmonth.sweldongpinoy.com",
       "isAndroid": false
-    }
+    },
+    {
+      "name": "MP2 Calculator Web App",
+      "icon": "ic_app_mp2_calc",
+      "description": "MP2 Calculator is an app for computing how much your MP2 (Modified Pag-IBIG 2) savings may grow based on actual dividend rates.",
+      "link": "https://mp2calc.sweldongpinoy.com",
+      "isAndroid": false
+    },
   ]
 }

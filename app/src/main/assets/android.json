@@ -72,6 +72,14 @@
       "link": "https://play.google.com/store/apps/details?id=com.tigcal.apps.toll",
       "isAndroid": true,
       "packageName": "com.tigcal.apps.toll"
-    }
+    },
+    {
+      "name": "MP2 Calculator ",
+      "icon": "ic_app_mp2_calc",
+      "description": "MP2 Calculator is an app for computing how much your MP2 (Modified Pag-IBIG 2) savings may grow based on actual dividend rates.",
+      "link": "https://play.google.com/store/apps/details?id=com.sweldongpinoy.mp2calc",
+      "isAndroid": true,
+      "packageName": "com.sweldongpinoy.mp2calc"
+    },
   ]
 }
