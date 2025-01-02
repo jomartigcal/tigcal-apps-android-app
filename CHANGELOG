@@ -1,0 +1,19 @@
+Tigcal Apps
+============================
+
+0.0.2
+    Replacing Assistant tab with Others tab
+    Adding Exchange Gift Generator and Events Check-in apps to the Other apps
+    Updating app icon
+    Updating minimum SDK from 16 to 19
+
+0.0.1
+    Opening Android app if installed, opening Google Play Store page when not
+    Replacing Open/Download text button with icon button
+    Adding share icon to share apps
+    Adding dark theme and settings screen to change app theme
+    Migrating code to Kotlin
+    Updating minimum SDK from 14 to 16
+
+0.0.0
+    Initial version
