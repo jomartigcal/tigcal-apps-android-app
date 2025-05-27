@@ -221,7 +221,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getPackageVersion(): String {
         return try {
-            getPackageInfo().versionName
+            getPackageInfo().versionName.orEmpty()
         } catch (e: PackageManager.NameNotFoundException) {
             Log.e(TAG, "package name not found")
             ""
