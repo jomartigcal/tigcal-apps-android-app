@@ -2,7 +2,6 @@ package com.tigcal.apps
 
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -18,10 +17,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.analytics.analytics
+import com.google.firebase.Firebase
 import com.tigcal.apps.util.AppUtils
 import com.tigcal.apps.views.AboutDialog
+import androidx.core.net.toUri
 
 
 class MainActivity : AppCompatActivity() {
@@ -176,7 +176,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun openAppLink(app: App) {
         if (app.link.isNotEmpty()) {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.link)))
+            startActivity(Intent(Intent.ACTION_VIEW, app.link.toUri()))
         } else {
             MaterialAlertDialogBuilder(this)
                 .setTitle(app.name)
@@ -212,7 +212,7 @@ class MainActivity : AppCompatActivity() {
         """.trimIndent()
 
         val intent = Intent(Intent.ACTION_SENDTO)
-        intent.data = Uri.parse("mailto:")
+        intent.data = "mailto:".toUri()
         intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("dev@tigcal.com"))
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.send_feedback_subject, getString(R.string.app_name)))
         intent.putExtra(Intent.EXTRA_TEXT, deviceInfo)
