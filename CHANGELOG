@@ -1,6 +1,11 @@
 Tigcal Apps
 ============================
 
+0.0.3
+    Adding Splash Screen for the app using the Splash Screen Compat library
+    Adding MP2 Calculator in the list of Android and Web apps
+    Updating minimum SDK from 19 to 21
+
 0.0.2
     Replacing Assistant tab with Others tab
     Adding Exchange Gift Generator and Events Check-in apps to the Other apps
