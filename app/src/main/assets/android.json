@@ -18,6 +18,14 @@
       "packageName": "com.sweldongpinoy.budget"
     },
     {
+      "name": "Custom Currency Converter",
+      "icon": "ic_app_currency_converter",
+      "description": "Custom Currency Converter is an app you can use to convert between two currencies using your own exchange rate.",
+      "link": "https://play.google.com/store/apps/details?id=com.tigcal.apps.cent",
+      "isAndroid": true,
+      "packageName": "com.tigcal.apps.cent"
+    },
+    {
       "name": "GDG Philippines",
       "icon": "ic_app_gdg",
       "description": "Get the latest posts, events, and other updates about GDG Philippines using the official Android app.",
