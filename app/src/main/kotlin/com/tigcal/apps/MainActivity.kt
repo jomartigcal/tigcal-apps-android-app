@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
             window.decorView.setOnApplyWindowInsetsListener { view, insets ->
                 val statusBarInsets = insets.getInsets(WindowInsets.Type.statusBars())
-                view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryDark))
+                view.setBackgroundColor(ContextCompat.getColor(this, R.color.colourPrimaryDark))
 
                 view.setPadding(0, statusBarInsets.top, 0, 0)
                 insets
