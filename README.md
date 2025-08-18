@@ -3,7 +3,7 @@ Tigcal Apps
 
 Personal applications and projects developed by [Jomar Tigcal](https://www.tigcal.com/).
 
-![Feature Graphic](art/feature-graphic.png)
+![Feature Graphic](art/feature_graphic_vertical.png)
 
 
 ## Screenshots
