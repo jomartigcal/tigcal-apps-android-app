@@ -5,7 +5,10 @@
         <item name="colorAccent">@color/colourAccent</item>
     </style>
 
-    <style name="AppTheme.LaunchScreen">
-        <item name="android:windowBackground">@drawable/launch_screen</item>
+    <style name="AppTheme.LaunchScreen" parent="Theme.SplashScreen.IconBackground">
+        <item name="windowSplashScreenBackground">@color/background</item>
+        <item name="windowSplashScreenIconBackgroundColor">#00BCD4</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launch_screen</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
     </style>
 </resources>

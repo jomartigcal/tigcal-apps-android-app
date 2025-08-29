@@ -24,6 +24,7 @@ import com.google.firebase.Firebase
 import com.tigcal.apps.util.AppUtils
 import com.tigcal.apps.views.AboutDialog
 import androidx.core.net.toUri
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : AppCompatActivity() {
     private var isDisplayWide = false
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity() {
     private var othersRecyclerView: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
