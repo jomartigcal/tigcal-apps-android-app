@@ -1,6 +1,12 @@
 Tigcal Apps
 ============================
 
+0.0.4
+    Adding Custom Currency Converter in the list of Android apps
+    Updating colour scheme and app launcher icon
+    Replacing Splash Screen with the one using the Splash Screen Compat library
+    Bumping minimum SDK from 21 to 23
+    
 0.0.3
     Adding Splash Screen for the app using the Splash Screen Compat library
     Adding MP2 Calculator in the list of Android and Web apps
